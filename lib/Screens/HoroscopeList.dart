@@ -15,10 +15,18 @@ class HoroscopeList extends StatelessWidget {
                     borderRadius: new BorderRadius.circular(10.0),
                     border: Border.all(color: Colors.white)
                 ),
-                child: const ListTile(
-                  leading: Icon(Icons.album, size: 50),
-                  title: Text('Heart Shaker'),
-                  subtitle: Text('TWICE'),
+                child:  ListTile(
+                  leading: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: 44,
+                      minHeight: 44,
+                      maxWidth: 44,
+                      maxHeight: 44,
+                    ),
+                    child: Image.asset('images/Aries.png'),
+                  ),
+                  title: Text('Aries',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                  subtitle: Text('(March 21 - April 19)'),
                 ),
               ),
             ],
