@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'package:demohoroapp/Screens/horoscope.dart';
 import 'package:flutter/material.dart';
 
 class HoroscopeList extends StatelessWidget {
@@ -5,6 +7,7 @@ class HoroscopeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
         centerTitle: true,
         title: Image.asset("images/topStar.png",width: 50,),
       ),
@@ -14,25 +17,30 @@ class HoroscopeList extends StatelessWidget {
           child: Column(
             children: <Widget>[
               //Aries
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: new BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.white)
-                  ),
-                  child:  ListTile(
-                    leading: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minWidth: 44,
-                        minHeight: 44,
-                        maxWidth: 44,
-                        maxHeight: 44,
-                      ),
-                      child: Image.asset('images/Aries.png'),
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => horoscope()));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: new BorderRadius.circular(10.0),
+                        border: Border.all(color: Colors.white)
                     ),
-                    title: Text('Aries',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                    subtitle: Text('(March 21 - April 19)',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w100),),
+                    child:  ListTile(
+                      leading: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minWidth: 44,
+                          minHeight: 44,
+                          maxWidth: 44,
+                          maxHeight: 44,
+                        ),
+                        child: Image.asset('images/Aries.png'),
+                      ),
+                      title: Text('Aries',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                      subtitle: Text('(March 21 - April 19)',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w100),),
+                    ),
                   ),
                 ),
               ),
