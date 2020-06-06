@@ -65,24 +65,3 @@ Widget _createDrawerItem(
     onTap: onTap,
   );
 }
-Widget _createHeader() {
-  return Container(
-    height: 80.0,
-    child: DrawerHeader(
-        margin: EdgeInsets.zero,
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image:  AssetImage('assets/drop.png'))),
-        child: Stack(children: <Widget>[
-          Positioned(
-              bottom: 12.0,
-              left: 16.0,
-              child: Text("",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500))),
-        ])),
-  );
-}
