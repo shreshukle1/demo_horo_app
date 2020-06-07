@@ -11,22 +11,27 @@ class horoscope extends StatelessWidget {
             child:
             Image.asset("images/aries.jpg"),
           ),
-          new Container(
-            child: DefaultTabController(
-              length: 3,
-              child: Scaffold(
-                appBar: AppBar(
-                  bottom: TabBar(
-                    tabs: [
-                    Tab(child: Text("Today"),),
-                    Tab(child: Text("Weekly"),),
-                    Tab(child: Text("Yearly"),),
-                  ],
-                ),
+          Flexible(
+            child: new Container(
+              height: 380 ,
+              width: double.infinity,
+              child: DefaultTabController(
+                length: 3,
+
+                child: Scaffold(
+                  body: Container(
+                    child: TabBar(
+                      tabs: [
+                        Tab(child: Text("Today",style: TextStyle(color:Colors.black),),),
+                        Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
+                        Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+                      ],
+                    ),
+                  ),
               ),
             ),
-          ),
         ),
+          ),
       ],
     ),
     );
