@@ -13,7 +13,7 @@ class horoscope extends StatelessWidget {
           ),
           Flexible(
             child: new Container(
-              height: 380 ,
+              height: 380,
               width: double.infinity,
               child: DefaultTabController(
                 length: 3,
