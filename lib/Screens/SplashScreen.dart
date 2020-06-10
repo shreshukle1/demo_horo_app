@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:demohoroapp/Screens/login.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigationPage() {
     Navigator.of(context).pushReplacementNamed('/Login');
+   // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
   @override

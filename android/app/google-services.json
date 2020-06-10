@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "946255844960",
+    "firebase_url": "https://demohoroscopeapp.firebaseio.com",
+    "project_id": "demohoroscopeapp",
+    "storage_bucket": "demohoroscopeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946255844960:android:fc33f451a350d1380f1505",
+        "android_client_info": {
+          "package_name": "com.example.demohoroapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946255844960-linl3vtu93abu0iti97nkt363iurh7ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiacK-DKxvYak3rcslpSs6yOpSIwYZEVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946255844960-linl3vtu93abu0iti97nkt363iurh7ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
