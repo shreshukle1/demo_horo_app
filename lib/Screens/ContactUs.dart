@@ -18,7 +18,14 @@ class FormScreenState extends State<FormScreen> {
 
   Widget _buildName() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Name'),
+      decoration: InputDecoration(
+          filled: true,
+          fillColor: Color(0xFFF2F2F2),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          ),
+          labelText: 'Name'),
       validator: (String value){
         if (value.isEmpty){
           return 'Name is Required';
@@ -32,7 +39,14 @@ class FormScreenState extends State<FormScreen> {
 
   Widget _buildEmail() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Email'),
+      decoration: InputDecoration(
+          filled: true,
+          fillColor: Color(0xFFF2F2F2),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          ),
+          labelText: 'Email'),
       keyboardType: TextInputType.emailAddress,
       validator: (String value) {
         if (value.isEmpty) {
@@ -53,7 +67,14 @@ class FormScreenState extends State<FormScreen> {
 
   Widget _buildPhoneNumber() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'Phone Number'),
+      decoration: InputDecoration(
+        filled: true,
+          fillColor: Color(0xFFF2F2F2),
+          focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(4)),
+          borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          ),
+          labelText: 'Phone Number'),
       keyboardType: TextInputType.phone,
       validator: (String value){
         if (value.isEmpty){
@@ -84,7 +105,7 @@ class FormScreenState extends State<FormScreen> {
             SizedBox(height: 100),
             RaisedButton(
               child: Text('Submit',
-                style: TextStyle(color:Colors.white),
+                style: TextStyle(color:Colors.blueGrey.shade900),
               ),
               onPressed: () {
                 if(!_formKey.currentState.validate()){
