@@ -24,9 +24,10 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       backgroundColor: Colors.black,
       resizeToAvoidBottomPadding: false,
-
-      body: Container(
-          decoration: BoxDecoration(
+        body: SafeArea(
+         child: SingleChildScrollView(
+           child: Container(
+            decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('images/horoscope.jpg'),
                   fit: BoxFit.cover)
@@ -311,6 +312,8 @@ class _SignUpState extends State<SignUp> {
 
           )
       ),
+      )
+        )
     );
   }
 
