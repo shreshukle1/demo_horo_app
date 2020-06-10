@@ -4,10 +4,11 @@ import 'Screens/SplashScreen.dart';
 import 'package:demohoroapp/Components/BottomNav.dart';
 
 
+
 void main(){
   runApp(new MaterialApp(
     debugShowCheckedModeBanner : false,
-    home:  (),
+    home:  SplashScreen(),
     routes: <String, WidgetBuilder>{
       '/Login': (BuildContext context) => new LoginPage()
     },

@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:demohoroapp/Screens/DailyTab.dart';
+import 'package:demohoroapp/Screens/WeeklyTab.dart';
+import 'package:demohoroapp/Screens/YearlyTab.dart';
 
 class horoscope extends StatelessWidget {
   @override
@@ -19,21 +23,30 @@ class horoscope extends StatelessWidget {
                 length: 3,
 
                 child: Scaffold(
-                  body: Container(
-                    child: TabBar(
-                      tabs: [
-                        Tab(child: Text("Today",style: TextStyle(color:Colors.black),),),
-                        Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
-                        Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
-                      ],
-                    ),
+                  appBar: AppBar(
+                    bottom: TabBar(
+                    tabs: [
+                      Tab(child: Text("Today",style: TextStyle(color:Colors.black),),),
+                      Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
+                      Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+                    ],
                   ),
-              ),
+                ),
+                body: TabBarView(
+         children: <Widget>[
+    DailyTab(),
+    WeeklyTab(),
+    YearlyTab(),
+
+    ],
+
+               ),
             ),
-        ),
           ),
-      ],
     ),
+    ),
+    ],
+      )
     );
   }
 }

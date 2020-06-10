@@ -12,7 +12,7 @@ class _DashboardState extends State<Dashboard> {
       backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       body: Center(
         child: Container(
-          child: Text("hello world"),
+          child: Text("hello world",style: TextStyle(color: Colors.white),),
         ),
       )
     );

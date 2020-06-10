@@ -1,67 +1,63 @@
+
 import 'package:flutter/material.dart';
+import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:demohoroapp/Screens/Dashboard.dart';
 import 'package:demohoroapp/Screens/Profile.dart';
 import 'package:demohoroapp/Screens/HoroscopeList.dart';
 
 class bottomNavigationBar extends StatefulWidget {
+
   @override
-  State<StatefulWidget> createState() {
-    return _BottomNavigationBarState();
-  }
+  _bottomNavigationBarState createState() => _bottomNavigationBarState();
 }
-class _BottomNavigationBarState extends State<bottomNavigationBar > {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+class _bottomNavigationBarState extends State<bottomNavigationBar> {
   int _selectedPage = 0;
+
   final _pageOptions = [
     Dashboard(),
     HoroscopeList(),
     Profile()
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
 
-      body: _pageOptions[_selectedPage],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedPage,
-        onTap: (int index){
+      body: _pageOptions[_selectedPage],backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      bottomNavigationBar: FFNavigationBar(
+        theme: FFNavigationBarTheme(
+          barBackgroundColor: Color.fromRGBO(0, 0, 51, 100),
+          selectedItemBorderColor: Colors.white,
+          selectedItemBackgroundColor: Color.fromRGBO(0, 0, 51, 100),
+          selectedItemIconColor: Colors.white,
+          selectedItemLabelColor: Colors.white,
+        ),
+        selectedIndex: _selectedPage,
+        onSelectTab: (index) {
           setState(() {
             _selectedPage = index;
           });
         },
+
+
         items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),title: Text("Dashboard")
+          FFNavigationBarItem(
+            iconData: Icons.dashboard,
+            label: 'Dashboard',
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.star),title: Text("zodiac")
+          FFNavigationBarItem(
+            iconData: Icons.star,
+            label: 'Horoscope List',
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),title: Text("Profile")
+          FFNavigationBarItem(
+            iconData: Icons.person,
+            label: 'profile',
           ),
+
         ],
       ),
     );
   }
-  void onTabTapped(int index) {
-    setState(() {
-      _selectedPage = index;
-    });
-  }
 }
-Widget _createDrawerItem(
-    {IconData icon, String text, GestureTapCallback onTap}) {
-  return ListTile(
-    title: Row(
-      children: <Widget>[
-        Icon(icon),
-        Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(text),
-        )
-      ],
-    ),
-    onTap: onTap,
-  );
-}
+
