@@ -10,7 +10,7 @@ class horoscope extends StatelessWidget {
           appBar: new PreferredSize(
             preferredSize: Size.fromHeight(320.0), // here the desired height
             child: new Container(
-              color: Color.fromRGBO(0, 0, 51, 100),
+              color: Colors.black,
               child: new SafeArea(
                 child: Column(
                   children: <Widget>[
@@ -19,9 +19,9 @@ class horoscope extends StatelessWidget {
                     ),
                     new TabBar(
                       tabs: [
-                        new Text("Today",style: TextStyle(color: Colors.black),),
-                        new Text("weekly",style: TextStyle(color: Colors.black),),
-                        new Text("Yearly",style: TextStyle(color: Colors.black),),
+                        new Text("Today"),
+                        new Text("weekly"),
+                        new Text("Yearly"),
                       ],
                     ),
                   ],
@@ -32,13 +32,13 @@ class horoscope extends StatelessWidget {
           body: new TabBarView(
             children: <Widget>[
               new Column(
-                children: <Widget>[new Text("Lunches Page")],
+                children: <Widget>[new Text(" Page 1")],
               ),
               new Column(
-                children: <Widget>[new Text("Cart Page")],
+                children: <Widget>[new Text("Page 2")],
               ),
               new Column(
-                children: <Widget>[new Text("Cart Page2")],
+                children: <Widget>[new Text("Page 3")],
               )
             ],
           ),
