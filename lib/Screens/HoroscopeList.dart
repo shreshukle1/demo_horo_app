@@ -28,11 +28,11 @@ class _HoroscopeListState extends State<HoroscopeList> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+        backgroundColor: Color.fromRGBO(40, 40, 77, 100),
         centerTitle: true,
         title: Image.asset("images/topStar.png",width: 50,),
       ),
-      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
