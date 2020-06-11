@@ -23,6 +23,7 @@ class DatabaseServices{
   static Future<User> getUser(String email) async{
     QuerySnapshot userQuery = await userCollection.where("email", isEqualTo: email).getDocuments();
     DocumentSnapshot documentSnapshot = userQuery.documents.first;
+    print(documentSnapshot.data);
     return User.fromJson(documentSnapshot.data);
   }
 }

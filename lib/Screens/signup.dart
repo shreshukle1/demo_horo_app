@@ -341,7 +341,7 @@ class _SignUpState extends State<SignUp> {
               , _phoneNumber, _gender);
           print(_email);
           print(_password);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
         }catch(e){
           print(e.message);
