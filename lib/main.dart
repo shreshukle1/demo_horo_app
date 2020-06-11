@@ -4,7 +4,6 @@ import 'package:demohoroapp/Components/BottomNav.dart';
 import 'package:demohoroapp/Screens/login.dart';
 
 
-
 void main(){
   runApp(new MaterialApp(
     debugShowCheckedModeBanner : false,

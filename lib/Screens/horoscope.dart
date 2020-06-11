@@ -1,51 +1,52 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:demohoroapp/Screens/DailyTab.dart';
+import 'package:demohoroapp/Screens/WeeklyTab.dart';
+import 'package:demohoroapp/Screens/YearlyTab.dart';
 
 class horoscope extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: new DefaultTabController(
-        length: 3,
-        child: new Scaffold(
-          appBar: new PreferredSize(
-            preferredSize: Size.fromHeight(320.0), // here the desired height
-            child: new Container(
-              color: Colors.black,
-              child: new SafeArea(
-                child: Column(
-                  children: <Widget>[
-                    new Container(
-                      child:  Image.asset("images/topStar.png",height: 300,),
+    return Scaffold(
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+        body: new Column(
+          children: [
+            new Container(
+              child:
+              Image.asset("images/aries.jpg"),
+            ),
+            Flexible(
+              child: new Container(
+                height: 380,
+                width: double.infinity,
+                child: DefaultTabController(
+                  length: 3,
+
+                  child: Scaffold(
+                    appBar: AppBar(
+                      bottom: TabBar(
+                        tabs: [
+                          Tab(child: Text("Today",style: TextStyle(color:Colors.black),),),
+                          Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
+                          Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+                        ],
+                      ),
                     ),
-                    new TabBar(
-                      tabs: [
-                        new Text("Today"),
-                        new Text("weekly"),
-                        new Text("Yearly"),
+                    body: TabBarView(
+                      children: <Widget>[
+                        DailyTab(),
+                        WeeklyTab(),
+                        YearlyTab(),
+
                       ],
+
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-          body: new TabBarView(
-            children: <Widget>[
-              new Column(
-                children: <Widget>[new Text(" Page 1")],
-              ),
-              new Column(
-                children: <Widget>[new Text("Page 2")],
-              ),
-              new Column(
-                children: <Widget>[new Text("Page 3")],
-              )
-            ],
-          ),
-        ),
-      ),
+          ],
+        )
     );
-
-
   }
 }

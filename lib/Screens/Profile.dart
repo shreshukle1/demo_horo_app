@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:demohoroapp/Screens/ContactUs.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -83,7 +84,8 @@ class _ProfileState extends State<Profile> {
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(20,0,20,0),
                                       child: Divider(height: 2,),
-                                    ),                                ListTile(
+                                    ),
+                                    ListTile(
                                       leading: Icon(Icons.phone_android,color: Colors.blue),
 
                                       title: Text(
@@ -109,6 +111,17 @@ class _ProfileState extends State<Profile> {
                                       padding: const EdgeInsets.fromLTRB(20,0,20,0),
                                       child: Divider(height: 2,),
                                     ),
+                                    ListTile(
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => FormScreen()));
+                                    },
+                                      leading: Icon(Icons.help,color: Colors.blue,),
+
+                                      title: Text(
+                                          "Contact Us",
+                                          style: TextStyle(
+                                            color: Colors.blueGrey,)),
+                                      )
                                   ],
                                 ),
                               ),
