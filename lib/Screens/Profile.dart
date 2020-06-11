@@ -1,6 +1,11 @@
+import 'package:demohoroapp/Screens/database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:demohoroapp/Screens/ContactUs.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../user.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -8,6 +13,19 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  User user;
+  @override
+  void initState() {
+    super.initState();
+    user = getUser();
+  }
+
+  getUser() async{
+    FirebaseAuth auth = FirebaseAuth.instance;
+    FirebaseUser firebaseUser = await auth.currentUser();
+    return await DatabaseServices.getUser(firebaseUser.email);
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -77,7 +95,7 @@ class _ProfileState extends State<Profile> {
                                       leading: Icon(Icons.email,color: Colors.blue),
 
                                       title: Text(
-                                          "Email ID",
+                                          "${user.email}",
                                           style: TextStyle(
                                             color: Colors.blueGrey,)),
                                     ),
@@ -89,7 +107,7 @@ class _ProfileState extends State<Profile> {
                                       leading: Icon(Icons.phone_android,color: Colors.blue),
 
                                       title: Text(
-                                          "Phone number",
+                                          "${user.phoneNumber}",
                                           style: TextStyle(
                                             color: Colors.blueGrey,)),
 
@@ -102,7 +120,7 @@ class _ProfileState extends State<Profile> {
                                       leading: Icon(Icons.cake,color: Colors.blue),
 
                                       title: Text(
-                                          "Date of birth",
+                                          "${user.dob}",
                                           style: TextStyle(
                                             color: Colors.blueGrey,)),
 
