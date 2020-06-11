@@ -22,182 +22,171 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellowAccent,
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       resizeToAvoidBottomPadding: false,
 
-      body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('images/horoscope.jpg'),
-                  fit: BoxFit.cover)
+      body: Column(
+        children: <Widget>[
 
-
+          Container(
+            padding: EdgeInsets.fromLTRB(30.0, 100.0, 30.0, 0.0),
+            child:Image.asset("images/topStar.png",height: 100,)
           ),
-          child: Column(
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              SizedBox(height: 30.0),
 
-              Container(
-                padding: EdgeInsets.fromLTRB(30.0, 100.0, 30.0, 0.0),
-                child: Text('My Daily Horoscope',
-                    style: TextStyle(fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-              ),
-
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 30.0),
-
-                  Form(
-                    key:_formKey,
-                    child:
-                    Column(
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                        ),
-                        TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty & !input.contains('@')) {
-                              return 'Provide an email';
-                            }
-                          },
-                          style: TextStyle(
+              Form(
+                key:_formKey,
+                child:
+                Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                    ),
+                    TextFormField(
+                      validator: (input) {
+                        if (input.isEmpty & !input.contains('@')) {
+                          return 'Provide an email';
+                        }
+                      },
+                      style: TextStyle(
+                          color: Colors.white
+                      ),
+                      decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat',
                               color: Colors.white
                           ),
-                          decoration: InputDecoration(
-                              labelText: 'Email',
-                              labelStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.orangeAccent
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
-                              )
-                          ),
-                          onSaved: (input) => _email = input,
+                          border: new OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4)),
+                              borderSide: new BorderSide(color: Colors.white)
+                          )
+                      ),
+                      onSaved: (input) => _email = input,
 
-                        ),
-                        SizedBox(height: 5.0),
-                        Container(
-                          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                        ),
-                        TextFormField(
-                          validator: (input) {
-                            if (input.length < 6) {
-                              return 'Provide a password which has more then 6 characters';
-                            }
-                          },
-                          style: TextStyle(
+                    ),
+                    SizedBox(height: 5.0),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                    ),
+                    TextFormField(
+                      validator: (input) {
+                        if (input.length < 6) {
+                          return 'Provide a password which has more then 6 characters';
+                        }
+                      },
+                      style: TextStyle(
+                          color: Colors.white
+                      ),
+                      decoration: InputDecoration(
+                          labelText: 'Password',
+
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat',
                               color: Colors.white
                           ),
-                          decoration: InputDecoration(
-                              labelText: 'Password',
+                          border: new OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4)),
+                            borderSide: BorderSide(color: Colors.greenAccent, width: 5.0),
+                          )
 
-                              labelStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.orangeAccent
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
-                              )
+                      ),
+                      obscureText: true,
+                      onSaved: (input) => _password = input,
 
-                          ),
-                          obscureText: true,
-                          onSaved: (input) => _password = input,
-
-                        ),
-
-                        SizedBox(height: 20),
-
-                        Container(
-
-                          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                          alignment: Alignment(1.0, 0.0),
-                          child: InkWell(
-                              child: Text('Forgot Password',
-                                style: TextStyle(
-                                  color: Colors.orangeAccent,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat',
-                                  decoration: TextDecoration.underline,
-                                ),)
-                          ),
-                        ),
-                        SizedBox(height: 30),
-                        Container(
-                          height: 40,
-                          width: 250,
-                          child: GestureDetector(
-                              onTap: signIn,
-                              child: Material(
-
-                                borderRadius: BorderRadius.circular(30.0),
-                                shadowColor: Colors.amber,
-                                color: Colors.blue,
-                                elevation: 20.0,
-                                child: Center(
-
-                                  child: Text('Login',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat',
-                                    ),),
-
-                                ),
-
-                              )
-
-                          ),
-                        ),
-                        SizedBox(height: 15),
-                        Container(
-                          height: 40,
-                          width: 300,
-                          child: GestureDetector(
-                              onTap:(){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                              },
-                              child: Material(
-                                borderRadius: BorderRadius.circular(30.0),
-                                shadowColor: Colors.amber,
-                                color: Colors.grey,
-                                elevation: 20.0,
-
-                                child: Center(
-                                  child: Text('Sign Up',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Montserrat',
-                                    ),),
-
-                                ),
-
-                              )
-
-                          ),
-                        ),
-
-                      ],
                     ),
 
+                    SizedBox(height: 20),
 
-                  )
+//                    Container(
+//
+//                    padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+//                      alignment: Alignment(1.0, 0.0),
+//                      child: InkWell(
+//                          child: Text('Forgot Password',
+//                            style: TextStyle(
+//                              color: Colors.orangeAccent,
+//                              fontWeight: FontWeight.bold,
+//                              fontFamily: 'Montserrat',
+//                              decoration: TextDecoration.underline,
+//                            ),)
+//                      ),
+//                    ),
+                    SizedBox(height: 30),
+                    Container(
+                      height: 40,
+                      width: 250,
+                      child: GestureDetector(
+                          onTap: signIn,
+                          child: Material(
+
+                            borderRadius: BorderRadius.circular(30.0),
+
+                            color: Colors.white,
+                            elevation: 20.0,
+                            child: Center(
+
+                              child: Text('Login',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat',
+                                ),),
+
+                            ),
+
+                          )
+
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Container(
+                      height: 40,
+                      width: 300,
+                      child: GestureDetector(
+                          onTap:(){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                          },
+                          child: Material(
+                            borderRadius: BorderRadius.circular(30.0),
+                            color: Colors.white,
+                            elevation: 20.0,
+
+                            child: Center(
+                              child: Text('Sign Up',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat',
+                                ),),
+
+                            ),
+
+                          )
+
+                      ),
+                    ),
+
+                  ],
+                ),
 
 
-
-                ],
               )
 
+
+
             ],
-
-
           )
+
+        ],
+
+
       ),
     );
   }

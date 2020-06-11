@@ -1,3 +1,4 @@
+import 'package:demohoroapp/Screens/HoroscopeList.dart';
 import 'package:demohoroapp/Screens/login.dart';
 import 'package:flutter/material.dart';
 import 'Screens/SplashScreen.dart';
