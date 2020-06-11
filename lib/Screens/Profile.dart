@@ -14,7 +14,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  User user = new User("firstName", "Lastname", "Email", "Jun 11, 2020", "Phone Number", "");
+  User user = new User("firstName", "Lastname", "Email", DateTime.now().toIso8601String(), "Phone Number", "");
 
   static String getFormattedDate(String date) {
     return DateFormat("MMM dd, yyyy").format(DateTime.parse(date));
