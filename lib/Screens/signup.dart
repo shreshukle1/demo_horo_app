@@ -341,10 +341,11 @@ class _SignUpState extends State<SignUp> {
               , _phoneNumber, _gender);
           print(_email);
           print(_password);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
 
         }catch(e){
           print(e.message);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
         }
       }
     }

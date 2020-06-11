@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demohoroapp/user.dart';
 
 
 class DatabaseServices{
 
-  final CollectionReference userCollection = Firestore.instance.collection('user');
+  static final CollectionReference userCollection = Firestore.instance.collection('user');
   final String uid;
   DatabaseServices({this.uid});
 
@@ -17,6 +18,11 @@ class DatabaseServices{
       'phoneNumber': phoneNumber,
       'gender': gender,
     });
+  }
 
+  static Future<User> getUser(String email) async{
+    QuerySnapshot userQuery = await userCollection.where("email", isEqualTo: email).getDocuments();
+    DocumentSnapshot documentSnapshot = userQuery.documents.first;
+    return User.fromJson(documentSnapshot.data);
   }
 }
