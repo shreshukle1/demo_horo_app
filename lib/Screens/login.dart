@@ -1,8 +1,11 @@
-import 'signup.dart';
+import 'package:demohoroapp/Components/BottomNav.dart';
+import 'package:demohoroapp/Screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/rendering.dart';
+import 'home.dart';
+
 
 class LoginPage extends StatefulWidget {
 
@@ -25,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('images/aries.jpg'),
+                  image: AssetImage('images/horoscope.jpg'),
                   fit: BoxFit.cover)
 
 
@@ -61,14 +64,14 @@ class _LoginPageState extends State<LoginPage> {
                             }
                           },
                           style: TextStyle(
-                            color: Colors.white
+                              color: Colors.white
                           ),
                           decoration: InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.orangeAccent
                               ),
                               focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.greenAccent)
@@ -125,51 +128,40 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(height: 30),
+                        Container(
+                          height: 40,
+                          width: 250,
+                          child: GestureDetector(
+                              onTap: signIn,
+                              child: Material(
 
+                                borderRadius: BorderRadius.circular(30.0),
+                                shadowColor: Colors.amber,
+                                color: Colors.blue,
+                                elevation: 20.0,
+                                child: Center(
 
-                        RaisedButton(
-                          child: Text("login"),
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationBar()));
-                          },
+                                  child: Text('Login',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Montserrat',
+                                    ),),
+
+                                ),
+
+                              )
+
+                          ),
                         ),
-//                        Container(
-//                          height: 40,
-//                          width: 250,
-//                          child: GestureDetector(
-//                            onTap: (){
-//                              Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationBar()));
-//                            },
-////                              onTap: signIn,
-//                              child: Material(
-//
-//                              borderRadius: BorderRadius.circular(30.0),
-//                          shadowColor: Colors.amber,
-//                          color: Colors.blue,
-//                          elevation: 20.0,
-//                                child: Center(
-//
-//                                  child: Text('Login',
-//                                    style: TextStyle(
-//                                      color: Colors.white,
-//                                      fontWeight: FontWeight.bold,
-//                                      fontFamily: 'Montserrat',
-//                                    ),),
-//
-//                                ),
-//
-//                              )
-//
-//                          ),
-//                        ),
                         SizedBox(height: 15),
                         Container(
                           height: 40,
                           width: 300,
                           child: GestureDetector(
-                            onTap:(){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                            },
+                              onTap:(){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                              },
                               child: Material(
                                 borderRadius: BorderRadius.circular(30.0),
                                 shadowColor: Colors.amber,
@@ -194,7 +186,10 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
 
+
                   )
+
+
 
                 ],
               )
@@ -212,22 +207,23 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-//void signIn() async {
-//  if(_formKey.currentState.validate()){
-//    _formKey.currentState.save();
-//    print(_email);
-//    print(_password);
-//    try{
-//      Dialogs.showLoadingDialog(context, _keyLoader);
-//      AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-//      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
-//      Navigator.push(context, MaterialPageRoute(builder: (context) => Home(user: result.user)));
-//    }catch(e){
-//      print(e.message);
-//      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
-//    }
-//  }
-//}
+  void signIn() async {
+    if(_formKey.currentState.validate()){
+      _formKey.currentState.save();
+      print(_email);
+      print(_password);
+      try{
+        Dialogs.showLoadingDialog(context, _keyLoader);
+        AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
+        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+      }catch(e){
+      }catch(e){
+        print(e.message);
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+      }
+    }
+  }
 }
 
 class Dialogs {
