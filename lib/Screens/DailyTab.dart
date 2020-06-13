@@ -6,44 +6,31 @@ import 'package:horoscope/horoscope_flutter.dart';
 
 
 class DailyTab extends StatefulWidget {
-  DailyTab({Key key, this.title}) : super(key: key);
-
-  final String title;
 
   @override
   _DailyTabState createState() => _DailyTabState();
 }
 class _DailyTabState extends State<DailyTab> {
   String sunsign = "Sunsign",
-        time = "Time of Horoscope",
+      time = "Time of Horoscope",
       horoscope = "Click on Button Above to get Horoscope";
 
   String selectedZodiac = ZodiacSigns.CAPRICORN;
 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new FutureBuilder(
+      future: Horoscope.getDailyHoroscope(selectedZodiac).then((value) {
+        if (value!=null){
+          setState(() {
+            sunsign = value.sunsign;
+            time = value.date;
+            horoscope = value.horoscope;
+          });
+        }
+      }),
 
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-
-            Wrap(
-              spacing: 3.0,
-              children: <Widget>[
-                Horoscope.getDailyHoroscope(selectedZodiac).then((onValue){
-
-                }
-        ],
-
-              ),
-            ],
-        )
-
-      ),
     );
   }
-
-
 }

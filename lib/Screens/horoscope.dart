@@ -23,15 +23,17 @@ class _HoroscopeState extends State<horoscopeSign> with SingleTickerProviderStat
   String value = ZodiacSigns.ARIES;
   TabController controller;
   final List<Tab> mytabs = <Tab>[
-    Tab(child: Text("Today",style: TextStyle(color:Colors.black),)
-    ),
+    Tab(child: Text("Today",style: TextStyle(color:Colors.black),)),
     Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
     Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
   ];
+
   @override
   void initState(){
-    super.initState();
+
     controller = TabController(vsync: this, length: mytabs.length);
+    super.initState();
+
   }
 
   @override
