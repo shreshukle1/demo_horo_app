@@ -12,10 +12,12 @@ class PasswordMissmatch extends StatelessWidget {
 
       children: <Widget>[
         Container(
-          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-
+          padding: EdgeInsets.fromLTRB(30.0, 250.0, 30.0, 0.0),
+          child: Text("Password's dont Match, Try Again",
+              style: TextStyle(fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
         ),
-        Text("Password's dont match"),
         RaisedButton(
           child:Text('Try Again'),
           color: Colors.blue,

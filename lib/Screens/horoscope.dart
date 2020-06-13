@@ -5,42 +5,20 @@ import 'package:demohoroapp/Screens/WeeklyTab.dart';
 import 'package:demohoroapp/Screens/YearlyTab.dart';
 import 'package:horoscope/horoscope_flutter.dart';
 
-class horoscopeSign extends StatefulWidget {
-  horoscopeSign({Key key, this.selectedZodiac}) : super(key: key);
+class HoroscopeSign extends StatelessWidget {
 
-  final String selectedZodiac;
-   String value;
+  String selectedSunSign;
 
-  @override
-  _HoroscopeState createState() => _HoroscopeState();
-}
+  HoroscopeSign(String sunsign){
+    this.selectedSunSign = sunsign;
+  }
 
-class _HoroscopeState extends State<horoscopeSign> with SingleTickerProviderStateMixin {
-  String sunsign = "Sunsign",
-      time = "Time of Horoscope",
-      horoscope = "Click on Button Above to get Horoscope";
-
-  String value = ZodiacSigns.ARIES;
   TabController controller;
   final List<Tab> mytabs = <Tab>[
     Tab(child: Text("Today",style: TextStyle(color:Colors.black),)),
     Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
     Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
   ];
-
-  @override
-  void initState(){
-
-    controller = TabController(vsync: this, length: mytabs.length);
-    super.initState();
-
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +43,9 @@ class _HoroscopeState extends State<horoscopeSign> with SingleTickerProviderStat
                     tabs: mytabs
                   ),
                 ), body: TabBarView(
-                  children: <Widget>[DailyTab(),
-                    WeeklyTab(),
-                    YearlyTab(),
+                  children: <Widget>[DailyTab(selectedSunSign),
+                    WeeklyTab(selectedSunSign),
+                    YearlyTab(selectedSunSign),
 
     ],
 
