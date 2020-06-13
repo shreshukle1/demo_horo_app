@@ -14,26 +14,31 @@ class DailyTab extends StatefulWidget {
 class _DailyTabState extends State<DailyTab> {
   DailyHoroscope horoscope = new DailyHoroscope();
   String selectedZodiac = ZodiacSigns.CAPRICORN;
+  bool isDataLoaded = false;
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
 
-  @override
-  void initState() {
-    super.initState();
-
+   Future apiCall() async {
+    DailyHoroscope response = await Horoscope.getDailyHoroscope(selectedZodiac);
+      setState(() => {
+      horoscope = response,
+      isDataLoaded = true
+      });
+      return response;
   }
 
   @override
   Widget build(BuildContext context) {
-    Dialogs.showLoadingDialog(context, _keyLoader);
-    Horoscope.getDailyHoroscope(selectedZodiac).then((val) => {
-      setState(() => {
-        horoscope = val
-      }),
-      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop()
-    });
 
-    return new Text(
-      horoscope.horoscope
-    );
-  }
+    return FutureBuilder(
+        future: apiCall(),
+        builder: (ctx, snapshot) {
+            return Text(
+              horoscope.horoscope == null ? "" : horoscope.horoscope,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            );
+        });
+}
 }

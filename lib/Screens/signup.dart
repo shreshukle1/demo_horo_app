@@ -297,21 +297,10 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ],
                     ),
-
                   ),
-
-
-
-
-
-
-
                 ],
               )
-
             ],
-
-
           )
       ),
       )
@@ -319,20 +308,11 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-
-
-
-
-
   void Register() async {
-
-
-    if(_formKey.currentState.validate()){
-
+    if(_formKey.currentState.validate()) {
+      _formKey.currentState.save();
       if (_password == _confirmpassword) {
-        print('entered');
         try{
-          _formKey.currentState.save();
           AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(
               email: _email, password: _password);
           // create a document with the user id i.e create the user in the database
@@ -350,7 +330,6 @@ class _SignUpState extends State<SignUp> {
       }
       else{
         Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordMissmatch())); }
-
     }
 
   }
