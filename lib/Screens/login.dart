@@ -1,4 +1,5 @@
 import 'package:demohoroapp/Components/BottomNav.dart';
+import 'package:demohoroapp/Components/Dialog.dart';
 import 'package:demohoroapp/Screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -235,39 +236,9 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
         Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
       }catch(e){
-        print(e.message);
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
         Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
       }
-
-
     }
-  }
-}
-
-
-
-class Dialogs {
-  static Future<void> showLoadingDialog(
-      BuildContext context, GlobalKey key) async {
-    return showDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return new WillPopScope(
-              onWillPop: () async => false,
-              child: SimpleDialog(
-                  key: key,
-                  backgroundColor: Colors.black54,
-                  children: <Widget>[
-                    Center(
-                      child: Column(children: [
-                        CircularProgressIndicator(),
-                        SizedBox(height: 10,),
-                        Text("Please Wait....",style: TextStyle(color: Colors.blueAccent),)
-                      ]),
-                    )
-                  ]));
-        });
   }
 }

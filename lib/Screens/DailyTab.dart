@@ -1,3 +1,4 @@
+import 'package:demohoroapp/Components/Dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:horoscope/horoscope/Horopscope.dart';
 import 'package:horoscope/horoscope/HoroscopeDetails.dart';
@@ -11,26 +12,28 @@ class DailyTab extends StatefulWidget {
   _DailyTabState createState() => _DailyTabState();
 }
 class _DailyTabState extends State<DailyTab> {
-  String sunsign = "Sunsign",
-      time = "Time of Horoscope",
-      horoscope = "Click on Button Above to get Horoscope";
-
+  DailyHoroscope horoscope = new DailyHoroscope();
   String selectedZodiac = ZodiacSigns.CAPRICORN;
+  final GlobalKey<State> _keyLoader = new GlobalKey<State>();
 
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    return new FutureBuilder(
-      future: Horoscope.getDailyHoroscope(selectedZodiac).then((value) {
-        if (value!=null){
-          setState(() {
-            sunsign = value.sunsign;
-            time = value.date;
-            horoscope = value.horoscope;
-          });
-        }
+    Dialogs.showLoadingDialog(context, _keyLoader);
+    Horoscope.getDailyHoroscope(selectedZodiac).then((val) => {
+      setState(() => {
+        horoscope = val
       }),
+      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop()
+    });
 
+    return new Text(
+      horoscope.horoscope
     );
   }
 }
