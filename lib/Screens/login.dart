@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 30),
                     Container(
                       height: 40,
-                      width: 250,
+                      width: 300,
                       child: GestureDetector(
                           onTap: signIn,
                           child: Material(

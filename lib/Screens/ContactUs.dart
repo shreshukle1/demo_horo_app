@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class FormScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -8,6 +9,7 @@ class FormScreen extends StatefulWidget {
 }
 
 class FormScreenState extends State<FormScreen> {
+
   String _name;
   String _email;
   String _phoneNumber;
@@ -15,85 +17,88 @@ class FormScreenState extends State<FormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildName() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: Color(0xFFF2F2F2),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: BorderSide(width: 1, color: Colors.blueGrey.shade900),
-            ),
-            labelText: 'Name'),
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Name is Required';
-          }
-        },
-        onSaved: (String value) {
-          _name = value;
-        },
+    return TextFormField(
+      decoration: InputDecoration(
+        border: new OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            borderSide: new BorderSide(color: Colors.white)
+        ),
+        labelText: 'Name',
+        labelStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white
+        ),
       ),
+      validator: (String value){
+        if (value.isEmpty){
+          return 'Name is Required';
+        }
+      },
+      onSaved: (String value) {
+        _name = value;
+      },
     );
   }
 
   Widget _buildEmail() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-            hintText: 'Email',
+    return TextFormField(
+      decoration: InputDecoration(
+          border: new OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderSide: new BorderSide(color: Colors.white)
+          ),
+          labelText: 'Email',
+          labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          )),
+      keyboardType: TextInputType.emailAddress,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Email is Required';
+        }
 
-        ),
-        keyboardType: TextInputType.emailAddress,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Email is Required';
-          }
-
-          if (!RegExp(
-                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-              .hasMatch(value)) {
-            return 'Please enter a valid email address';
-          }
-        },
-        onSaved: (String value) {
-          _email = value;
-        },
-      ),
+        if (!RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+            .hasMatch(value)) {
+          return 'Please enter a valid email address';
+        }
+      },
+      onSaved: (String value) {
+        _email = value;
+      },
     );
   }
 
   Widget _buildPhoneNumber() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: Color(0xFFF2F2F2),
-            focusedBorder: OutlineInputBorder(
+    return TextFormField(
+      decoration: InputDecoration(
+          border: new OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: BorderSide(width: 1, color: Colors.blueGrey.shade900),
-            ),
-            labelText: 'Phone Number'),
-        keyboardType: TextInputType.phone,
-        validator: (String value) {
-          if (value.isEmpty) {
-            return 'Phone Number is Required';
-          }
-        },
-        onSaved: (String value) {
-          _phoneNumber = value;
-        },
-      ),
+              borderSide: new BorderSide(color: Colors.white)
+          ),
+          labelText: 'Phone Number',
+          labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          )),
+      keyboardType: TextInputType.phone,
+      validator: (String value){
+        if (value.isEmpty){
+          return 'Phone Number is Required';
+        }
+      },
+      onSaved: (String value) {
+        _phoneNumber = value;
+      },
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
+      appBar: AppBar(),
       body: Container(
         margin: EdgeInsets.all(24.0),
         child: Form(
@@ -106,12 +111,11 @@ class FormScreenState extends State<FormScreen> {
               _buildPhoneNumber(),
               SizedBox(height: 100),
               RaisedButton(
-                child: Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.blueGrey.shade900),
+                child: Text('Submit',
+                  style: TextStyle(color:Colors.blueGrey.shade900),
                 ),
                 onPressed: () {
-                  if (!_formKey.currentState.validate()) {
+                  if(!_formKey.currentState.validate()){
                     return;
                   }
 
@@ -120,6 +124,7 @@ class FormScreenState extends State<FormScreen> {
                   print(_name);
                   print(_email);
                   print(_phoneNumber);
+
                 },
               ),
             ],

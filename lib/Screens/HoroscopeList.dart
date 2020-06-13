@@ -27,12 +27,8 @@ class _HoroscopeListState extends State<HoroscopeList> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
-        centerTitle: true,
-        title: Image.asset("images/topStar.png",width: 50,),
-      ),
-      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -58,7 +54,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                           maxWidth: 44,
                           maxHeight: 44,
                         ),
-                        child: Image.asset('images/star.jpeg',
+                        child: Image.asset('images/Aries.png',
                         height: 200,
                         width: 300,fit: BoxFit.fill,),
                       ),
@@ -91,7 +87,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                         maxWidth: 44,
                         maxHeight: 44,
                       ),
-                      child: Image.asset('images/star.jpeg',
+                      child: Image.asset('images/Taurus.png',
                         height: 200,
                         width: 300,fit: BoxFit.fill,),
                     ),
@@ -116,7 +112,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                         maxWidth: 44,
                         maxHeight: 44,
                       ),
-                      child: Image.asset('images/star.jpeg',
+                      child: Image.asset('images/gemini.png',
                         height: 200,
                         width: 300,fit: BoxFit.fill,),
                     ),
@@ -141,7 +137,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                         maxWidth: 44,
                         maxHeight: 44,
                       ),
-                      child: Image.asset('images/star.jpeg',
+                      child: Image.asset('images/cancer.png',
                         height: 200,
                         width: 300,fit: BoxFit.fill,),
                     ),
@@ -166,7 +162,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                         maxWidth: 44,
                         maxHeight: 44,
                       ),
-                      child: Image.asset('images/star.jpeg',
+                      child: Image.asset('images/leo.png',
                         height: 200,
                         width: 300,fit: BoxFit.fill,),
                     ),
