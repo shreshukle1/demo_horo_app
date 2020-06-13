@@ -8,6 +8,8 @@ import 'package:horoscope/horoscope_flutter.dart';
 class YearlyTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+
+    );
   }
 }

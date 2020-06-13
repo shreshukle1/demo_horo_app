@@ -81,7 +81,7 @@ class _ProfileState extends State<Profile> {
 //                          ),
 //                        )),
                 Text(
-                  'Mike',
+                  user.firstName,
                   style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,

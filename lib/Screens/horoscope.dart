@@ -15,12 +15,30 @@ class horoscopeSign extends StatefulWidget {
   _HoroscopeState createState() => _HoroscopeState();
 }
 
-class _HoroscopeState extends State<horoscopeSign> {
+class _HoroscopeState extends State<horoscopeSign> with SingleTickerProviderStateMixin {
   String sunsign = "Sunsign",
       time = "Time of Horoscope",
       horoscope = "Click on Button Above to get Horoscope";
 
   String value = ZodiacSigns.ARIES;
+  TabController controller;
+  final List<Tab> mytabs = <Tab>[
+    Tab(child: Text("Today",style: TextStyle(color:Colors.black),)
+    ),
+    Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
+    Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+  ];
+  @override
+  void initState(){
+    super.initState();
+    controller = TabController(vsync: this, length: mytabs.length);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +60,7 @@ class _HoroscopeState extends State<horoscopeSign> {
                 child: Scaffold(
                   appBar: AppBar(
                     bottom: TabBar(
-                    tabs: [
-                      Tab(child: Text("Today",style: TextStyle(color:Colors.black),)
-                      ),
-
-                      Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
-                      Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
-                    ],
+                    tabs: mytabs
                   ),
                 ), body: TabBarView(
                   children: <Widget>[DailyTab(),

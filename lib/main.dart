@@ -11,7 +11,7 @@ void main(){
     debugShowCheckedModeBanner : false,
     home:  SplashScreen(),
     routes: <String, WidgetBuilder>{
-      '/Login': (BuildContext context) => new LoginPage()
+      '/Login': (BuildContext context) => new HoroscopeList()
     },
   ));
 }

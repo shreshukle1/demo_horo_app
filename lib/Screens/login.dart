@@ -199,24 +199,53 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-void signIn() async {
-  if(_formKey.currentState.validate()){
+/*void signIn() async {
+  if(_formKey.currentState.validate()) {
     _formKey.currentState.save();
     print(_email);
     print(_password);
     try{
+      print('entereted try');
       Dialogs.showLoadingDialog(context, _keyLoader);
       AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+      print('authenticaation done');
       Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
       Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
     }catch(e){
-    }catch(e){
+      //Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+      //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    }
+
+    /*catch(e){
       print(e.message);
       Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+    }*/
+  }
+}
+}*/
+
+  void signIn() async {
+    if(_formKey.currentState.validate()){
+      _formKey.currentState.save();
+      print(_email);
+      print(_password);
+      try{
+        Dialogs.showLoadingDialog(context, _keyLoader);
+        AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
+        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+      }catch(e){
+        print(e.message);
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+      }
+
+
     }
   }
 }
-}
+
+
 
 class Dialogs {
   static Future<void> showLoadingDialog(
