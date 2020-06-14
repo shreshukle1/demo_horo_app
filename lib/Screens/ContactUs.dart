@@ -19,13 +19,16 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildName() {
     return TextFormField(
       decoration: InputDecoration(
-          filled: true,
-          fillColor: Color(0xFFF2F2F2),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          border: new OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderSide: new BorderSide(color: Colors.white)
           ),
-          labelText: 'Name'),
+          labelText: 'Name',
+            labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+                color: Colors.white
+            ),
+          ),
       validator: (String value){
         if (value.isEmpty){
           return 'Name is Required';
@@ -40,13 +43,15 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildEmail() {
     return TextFormField(
       decoration: InputDecoration(
-          filled: true,
-          fillColor: Color(0xFFF2F2F2),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          border: new OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderSide: new BorderSide(color: Colors.white)
           ),
-          labelText: 'Email'),
+          labelText: 'Email',
+            labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white
+            )),
       keyboardType: TextInputType.emailAddress,
       validator: (String value) {
         if (value.isEmpty) {
@@ -68,13 +73,15 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildPhoneNumber() {
     return TextFormField(
       decoration: InputDecoration(
-        filled: true,
-          fillColor: Color(0xFFF2F2F2),
-          focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(4)),
-          borderSide: BorderSide(width: 1,color: Colors.blueGrey.shade900),
+          border: new OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderSide: new BorderSide(color: Colors.white)
           ),
-          labelText: 'Phone Number'),
+          labelText: 'Phone Number',
+            labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white
+            )),
       keyboardType: TextInputType.phone,
       validator: (String value){
         if (value.isEmpty){
@@ -90,7 +97,7 @@ class FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       appBar: AppBar(),
       body: Container(
         margin: EdgeInsets.all(24.0),
