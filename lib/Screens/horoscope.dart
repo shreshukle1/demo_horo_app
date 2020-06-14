@@ -5,22 +5,20 @@ import 'package:demohoroapp/Screens/WeeklyTab.dart';
 import 'package:demohoroapp/Screens/YearlyTab.dart';
 import 'package:horoscope/horoscope_flutter.dart';
 
-class horoscopeSign extends StatefulWidget {
-  horoscopeSign({Key key, this.selectedZodiac}) : super(key: key);
+class HoroscopeSign extends StatelessWidget {
 
-  final String selectedZodiac;
-   String value;
+  String selectedSunSign;
 
-  @override
-  _HoroscopeState createState() => _HoroscopeState();
-}
+  HoroscopeSign(String sunsign){
+    this.selectedSunSign = sunsign;
+  }
 
-class _HoroscopeState extends State<horoscopeSign> {
-  String sunsign = "Sunsign",
-      time = "Time of Horoscope",
-      horoscope = "Click on Button Above to get Horoscope";
-
-  String value = ZodiacSigns.ARIES;
+  TabController controller;
+  final List<Tab> mytabs = <Tab>[
+    Tab(child: Text("Today",style: TextStyle(color:Colors.black),)),
+    Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
+    Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +40,12 @@ class _HoroscopeState extends State<horoscopeSign> {
                 child: Scaffold(
                   appBar: AppBar(
                     bottom: TabBar(
-                    tabs: [
-                      Tab(child: Text("Today",style: TextStyle(color:Colors.black),)
-                      ),
-
-                      Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
-                      Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
-                    ],
+                    tabs: mytabs
                   ),
                 ), body: TabBarView(
-                  children: <Widget>[DailyTab(),
-                    WeeklyTab(),
-                    YearlyTab(),
+                  children: <Widget>[DailyTab(selectedSunSign),
+                    WeeklyTab(selectedSunSign),
+                    YearlyTab(selectedSunSign),
 
     ],
 

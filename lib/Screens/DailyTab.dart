@@ -5,19 +5,31 @@ import 'package:horoscope/horoscope/ZodiacSigns.dart';
 import 'package:horoscope/horoscope_flutter.dart';
 
 class DailyTab extends StatelessWidget {
+  String selectedZodiac;
+
+  DailyTab(String sunsign) {
+    this.selectedZodiac = sunsign;
+  }
+
+  Future<DailyHoroscope> apiCall() async {
+    DailyHoroscope response = await Horoscope.getDailyHoroscope(selectedZodiac);
+    return response;
+  }
+
   @override
-
-  String sunsign = "Sunsign",
-      time = "Time of Horoscope",
-      horoscope = "Click on Button Above to get Horoscope";
-  final selectedZodiac=ZodiacSigns.ARIES;
-
   Widget build(BuildContext context) {
-
-
-    return Container(
-
-        );
-
+    return FutureBuilder<DailyHoroscope>(
+        future: apiCall(),
+        builder: (ctx, snapshot) {
+          if (snapshot.hasData) {
+            return SingleChildScrollView(
+                child: Text(
+              snapshot.data.horoscope == null ? "" : snapshot.data.horoscope,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ));
+          } else {
+            return new CircularProgressIndicator();
+          }
+        });
   }
 }

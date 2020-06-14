@@ -1,4 +1,5 @@
 import 'package:demohoroapp/Components/BottomNav.dart';
+import 'package:demohoroapp/Components/Dialog.dart';
 import 'package:demohoroapp/Screens/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -199,46 +200,45 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-void signIn() async {
-  if(_formKey.currentState.validate()){
+/*void signIn() async {
+  if(_formKey.currentState.validate()) {
     _formKey.currentState.save();
     print(_email);
     print(_password);
     try{
+      print('entereted try');
       Dialogs.showLoadingDialog(context, _keyLoader);
       AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+      print('authenticaation done');
       Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
       Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
     }catch(e){
-    }catch(e){
+      //Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+      //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    }
+
+    /*catch(e){
       print(e.message);
       Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
-    }
+    }*/
   }
 }
-}
+}*/
 
-class Dialogs {
-  static Future<void> showLoadingDialog(
-      BuildContext context, GlobalKey key) async {
-    return showDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return new WillPopScope(
-              onWillPop: () async => false,
-              child: SimpleDialog(
-                  key: key,
-                  backgroundColor: Colors.black54,
-                  children: <Widget>[
-                    Center(
-                      child: Column(children: [
-                        CircularProgressIndicator(),
-                        SizedBox(height: 10,),
-                        Text("Please Wait....",style: TextStyle(color: Colors.blueAccent),)
-                      ]),
-                    )
-                  ]));
-        });
+  void signIn() async {
+    if(_formKey.currentState.validate()){
+      _formKey.currentState.save();
+      print(_email);
+      print(_password);
+      try{
+        Dialogs.showLoadingDialog(context, _keyLoader);
+        AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
+        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+      }catch(e){
+        Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
+        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+      }
+    }
   }
 }
