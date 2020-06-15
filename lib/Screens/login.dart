@@ -34,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             child:
               CircleAvatar(
                 radius: 70.0,
+                backgroundColor: Color.fromRGBO(40, 40, 77, 100),
                 backgroundImage: AssetImage('images/topStar.png'),),
           ),
 
