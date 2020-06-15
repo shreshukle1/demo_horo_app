@@ -23,24 +23,17 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
       resizeToAvoidBottomPadding: false,
         body: SafeArea(
          child: SingleChildScrollView(
            child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('images/horoscope.jpg'),
-                  fit: BoxFit.cover)
-
-
-          ),
           child: Column(
             children: <Widget>[
 
               Container(
                 padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-                child: Text('My Daily Horoscope Sign Up Page',
+                child: Text('My Daily Horoscope',
                     style: TextStyle(fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
@@ -71,10 +64,11 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent,
+                                color: Colors.white,
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                                  borderSide: new BorderSide(color: Colors.white),
                               )
                           ),
                           onSaved: (input) => _firstName = input,
@@ -99,10 +93,11 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent,
+                                color: Colors.white,
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                            border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
                           ),
                           onSaved: (input) => _lastName = input,
@@ -128,12 +123,14 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent,
+                                color: Colors.white,
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
                           ),
+                          keyboardType: TextInputType.emailAddress,
                           onSaved: (input) => _email = input,
 
                         ),
@@ -166,12 +163,14 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent,
+                                color: Colors.white,
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
                           ),
+                          keyboardType: TextInputType.phone,
                           onSaved: (input) => _phoneNumber = input,
 
                         ),
@@ -195,10 +194,11 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
-                                color: Colors.orangeAccent,
+                                color: Colors.white,
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
                           ),
                           onSaved: (input) => _gender = input,
@@ -224,10 +224,11 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Montserrat',
-                                  color: Colors.orangeAccent
+                                  color: Colors.white
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
 
                           ),
@@ -254,10 +255,11 @@ class _SignUpState extends State<SignUp> {
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Montserrat',
-                                  color: Colors.orangeAccent
+                                  color: Colors.white
                               ),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.greenAccent)
+                              border: new OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                borderSide: new BorderSide(color: Colors.white),
                               )
 
                           ),
@@ -277,14 +279,13 @@ class _SignUpState extends State<SignUp> {
                               onTap: Register,
                               child: Material(
                                 borderRadius: BorderRadius.circular(30.0),
-                                shadowColor: Colors.amber,
-                                color: Colors.blue,
+                                color: Colors.white,
                                 elevation: 20.0,
 
                                 child: Center(
                                   child: Text('Register',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Montserrat',
                                     ),),
