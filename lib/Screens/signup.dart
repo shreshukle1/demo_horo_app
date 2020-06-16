@@ -1,4 +1,5 @@
 import 'package:demohoroapp/Components/datepicker.dart';
+import 'package:demohoroapp/Components/passmissmatch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -263,6 +264,7 @@ class _SignUpState extends State<SignUp> {
                                   obscureText: true,
                                   onSaved: (input) => _confirmpassword = input,
 
+
                                 ),
 
                                 SizedBox(height: 7),
@@ -295,21 +297,10 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ],
                             ),
-
                           ),
-
-
-
-
-
-
-
                         ],
                       )
-
                     ],
-
-
                   )
               ),
             )
@@ -317,30 +308,19 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-
-
-
-
-
   void Register() async {
-
-
-    if(_formKey.currentState.validate()){
-
-      if (_password == _confirmpassword){
+    if(_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      if (_password == _confirmpassword) {
         try{
-          _formKey.currentState.validate();
-          _formKey.currentState.save();
           AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(
               email: _email, password: _password);
           // create a document with the user id i.e create the user in the database
           FirebaseAuth _auth = FirebaseAuth.instance;
           final FirebaseUser user = await _auth.currentUser();
-
           await DatabaseServices(uid:user.uid).updateUserData(_firstName, _lastName, _email, _dob
               , _phoneNumber, _gender);
-          print(_email);
-          print(_password);
+
           Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
         }catch(e){
@@ -348,7 +328,10 @@ class _SignUpState extends State<SignUp> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
         }
       }
+      else{
+        Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordMissmatch())); }
     }
+
   }
 
 
