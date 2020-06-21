@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "946255844960",
-    "firebase_url": "https://demohoroscopeapp.firebaseio.com",
-    "project_id": "demohoroscopeapp",
-    "storage_bucket": "demohoroscopeapp.appspot.com"
+    "project_number": "920994178877",
+    "firebase_url": "https://horoscope1-9baf5.firebaseio.com",
+    "project_id": "horoscope1-9baf5",
+    "storage_bucket": "horoscope1-9baf5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:946255844960:android:fc33f451a350d1380f1505",
+        "mobilesdk_app_id": "1:920994178877:android:63c8bf76c21663793d8754",
         "android_client_info": {
-          "package_name": "com.example.demohoroapp"
+          "package_name": "com.example.horoscope"
         }
       },
       "oauth_client": [
         {
-          "client_id": "946255844960-linl3vtu93abu0iti97nkt363iurh7ck.apps.googleusercontent.com",
+          "client_id": "920994178877-haafcras0ln8fr7jmcrsa3emma88ohdm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAiacK-DKxvYak3rcslpSs6yOpSIwYZEVA"
+          "current_key": "AIzaSyBpfCSqThKZzrbyXaf8WQli28Eig53890o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "946255844960-linl3vtu93abu0iti97nkt363iurh7ck.apps.googleusercontent.com",
+              "client_id": "920994178877-haafcras0ln8fr7jmcrsa3emma88ohdm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
