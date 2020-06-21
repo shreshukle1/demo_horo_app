@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
         width: 85,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Palm()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => CameraApp()));
           },
           child: Icon(Icons.center_focus_strong, size: 40,),
           backgroundColor: Color.fromRGBO(0, 0, 51, 100),
