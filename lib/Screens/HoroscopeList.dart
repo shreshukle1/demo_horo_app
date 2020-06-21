@@ -19,6 +19,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(40, 40, 77, 100),
           centerTitle: true,

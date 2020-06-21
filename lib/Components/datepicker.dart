@@ -28,7 +28,7 @@ class BasicDateField extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Montserrat',
-                color: Colors.orangeAccent,
+                color: Colors.white,
               )),
           DateTimeField(
             format: format,

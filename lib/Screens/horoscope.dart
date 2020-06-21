@@ -38,11 +38,8 @@ class HoroscopeSign extends StatelessWidget {
                   length: 3,
 
                   child: Scaffold(
-                    appBar: AppBar(
-                      bottom: TabBar(
-                          tabs: mytabs
-                      ),
-                    ), body: TabBarView(
+
+                    body: TabBarView(
                     children: <Widget>[DailyTab(selectedSunSign),
                       WeeklyTab(selectedSunSign),
                       YearlyTab(selectedSunSign),
@@ -54,6 +51,12 @@ class HoroscopeSign extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              child:  TabBar(
+                  tabs: mytabs
+              ),
+            )
+
           ],
         )
     );
