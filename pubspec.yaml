@@ -31,13 +31,17 @@ dependencies:
   intl:
   flutter_rounded_date_picker:
   datetime_picker_formfield:
-
+  path_provider:
+  path:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   horoscope: ^1.0.1
   ff_navigation_bar: ^0.1.4
+  camera:
+  esys_flutter_share: ^1.0.2
+
 
 
 dev_dependencies:
@@ -72,9 +76,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-  - family: Source sans Pro
-    fonts:
-    - asset: fonts/SourceSansPro-Regular.ttf
+    - family: Source sans Pro
+      fonts:
+        - asset: fonts/SourceSansPro-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
