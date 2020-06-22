@@ -27,274 +27,278 @@ class _SignUpState extends State<SignUp> {
         resizeToAvoidBottomPadding: false,
         body: SafeArea(
             child: SingleChildScrollView(
-              child: Container(
-                  child: Column(
-                    children: <Widget>[
+              child: Column(
+                children: <Widget>[
 
-                      Container(
-                        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-                        child: Text('My Daily Horoscope',
-                            style: TextStyle(fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
-                      ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+                    child: Text('My Daily Horoscope',
+                        style: TextStyle(fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white)),
+                  ),
 
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(height: 10.0),
-                            Container(
-                              // padding: EdgeInsets.fromLTRB(10.0, 5.0, 1.0, 5.0),
-                            ),
-                            Form(
-                              key: _formKey,
-                              child: Column(
-                                children: <Widget>[
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Provide a First Name';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-                                    decoration: InputDecoration(
-                                        labelText: 'First Name',
-                                        labelStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-                                    ),
-                                    onSaved: (input) => _firstName = input,
-
-                                  ),
-                                  SizedBox(height: 1.0),
-                                  Container(
-                                    //  padding: EdgeInsets.fromLTRB(10.0, 5.0, 1.0, 5.0),
-                                  ),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Provide a Last Name';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-                                    decoration: InputDecoration(
-                                        labelText: 'Last Name',
-                                        labelStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-                                    ),
-                                    onSaved: (input) => _lastName = input,
-
-                                  ),
-                                  SizedBox(height: 1.0),
-                                  Container(
-                                    //  padding: EdgeInsets.fromLTRB(10.0, 5.0, 1.0, 5.0),
-
-                                  ),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Provide an email';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-                                    decoration: InputDecoration(
-                                        labelText: 'Email',
-                                        labelStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    onSaved: (input) => _email = input,
-
-                                  ),
-                                  SizedBox(height: 3.0),
-
-                                  BasicDateField(
-                                      "Date of Birth",
-                                          (date) => {
-                                        _dob = date.toIso8601String()
-                                      }
-                                  ),
-                                  SizedBox(height: 1.0),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.length<10 || input.length>10 || input.isEmpty) {
-                                        return 'Provide a valid Phone Number';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-
-                                    decoration: InputDecoration(
-                                        labelText: 'Mobile Number',
-                                        labelStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-                                    ),
-                                    keyboardType: TextInputType.phone,
-                                    onSaved: (input) => _phoneNumber = input,
-
-                                  ),
-                                  SizedBox(height: 1.0),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Provide a Gender';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-
-                                    decoration: InputDecoration(
-                                        labelText: 'Gender',
-                                        labelStyle: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-                                    ),
-                                    onSaved: (input) => _gender = input,
-
-                                  ),
-
-                                  SizedBox(height: 1.0),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Provide a password which has more then 6 characters';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-                                    decoration: InputDecoration(
-                                        labelText: 'Password',
-
-                                        labelStyle: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.white
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-
-                                    ),
-                                    obscureText: true,
-                                    onSaved: (input) => _password = input,
-
-                                  ),
-                                  SizedBox(height: 1.0),
-
-                                  TextFormField(
-                                    validator: (input) {
-                                      if (input.length < 6) {
-                                        return 'Provide a password which has more then 6 characters';
-                                      }
-                                    },
-                                    style: TextStyle(
-                                        color: Colors.white
-                                    ),
-                                    decoration: InputDecoration(
-                                        labelText: 'Confirm Password',
-
-                                        labelStyle: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.white
-                                        ),
-                                        border: new OutlineInputBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(4)),
-                                          borderSide: new BorderSide(color: Colors.white),
-                                        )
-
-                                    ),
-                                    obscureText: true,
-                                    onSaved: (input) => _confirmpassword = input,
-
-
-                                  ),
-
-                                  SizedBox(height: 7),
-
-
-                                  Container(
-                                    height: 40,
-                                    width: 250,
-                                    child: GestureDetector(
-                                        onTap: Register,
-                                        child: Material(
-                                          borderRadius: BorderRadius.circular(30.0),
-                                          color: Colors.white,
-                                          elevation: 20.0,
-
-                                          child: Center(
-                                            child: Text('Register',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                                fontFamily: 'Montserrat',
-                                              ),),
-
-                                          ),
-
-                                        )
-
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: 10.0),
+                        Container(
+                          // padding: EdgeInsets.fromLTRB(10.0, 5.0, 1.0, 5.0),
                         ),
-                      )
-                    ],
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            children: <Widget>[
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Provide a First Name';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'First Name',
+                                    hintStyle: TextStyle(
+                                      color: Colors.white70,
+                                    ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+
+                                ),
+                                onSaved: (input) => _firstName = input,
+
+                              ),
+                              SizedBox(height: 10.0),
+
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Provide a Last Name';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'Last Name',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+                                ),
+                                onSaved: (input) => _lastName = input,
+
+                              ),
+                              SizedBox(height: 10.0),
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Provide an email';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'Email',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+                                ),
+                                keyboardType: TextInputType.emailAddress,
+                                onSaved: (input) => _email = input,
+
+                              ),
+                              SizedBox(height: 10.0),
+
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(10,0,0,0),
+                                child: BasicDateField(
+                                    "Date of Birth",
+                                        (date) => {
+                                      _dob = date.toIso8601String()
+                                    }
+                                ),
+                              ),
+
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.length<10 || input.length>10 || input.isEmpty) {
+                                    return 'Provide a valid Phone Number';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+
+                                decoration: InputDecoration(
+                                    hintText: 'Mobile Number',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+                                ),
+                                keyboardType: TextInputType.phone,
+                                onSaved: (input) => _phoneNumber = input,
+
+                              ),
+
+                              SizedBox(height: 10.0),
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Provide a Gender';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+
+                                decoration: InputDecoration(
+                                    hintText: 'Gender',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+                                ),
+                                onSaved: (input) => _gender = input,
+
+                              ),
+
+                              SizedBox(height: 10.0),
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Provide a password which has more then 6 characters';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'Password',
+
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+
+                                ),
+                                obscureText: true,
+                                onSaved: (input) => _password = input,
+
+                              ),
+                              SizedBox(height: 10.0),
+
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.length < 6) {
+                                    return 'Provide a password which has more then 6 characters';
+                                  }
+                                },
+                                style: TextStyle(
+                                    color: Colors.white
+                                ),
+                                decoration: InputDecoration(
+                                    hintText: 'Confirm Password',
+
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)) ,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
+
+                                ),
+                                obscureText: true,
+                                onSaved: (input) => _confirmpassword = input,
+
+
+                              ),
+
+                              SizedBox(height: 10),
+
+
+                              Container(
+                                height: 40,
+                                width: 250,
+                                child: GestureDetector(
+                                    onTap: Register,
+                                    child: Material(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      color: Colors.white,
+                                      elevation: 20.0,
+
+                                      child: Center(
+                                        child: Text('Register',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Montserrat',
+                                          ),),
+
+                                      ),
+
+                                    )
+
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   )
+                ],
               ),
             )
         )

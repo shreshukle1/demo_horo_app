@@ -35,10 +35,12 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+
         body: new Stack(
       children: <Widget>[
         ClipPath(
-          child: Container(color: Color.fromRGBO(0, 0, 51, 100)),
+          child: Container(
+              color: Color.fromRGBO(0, 0, 51, 100)),
           clipper: getClipper(),
         ),
         Positioned(
@@ -51,7 +53,6 @@ class _ProfileState extends State<Profile> {
                     width: 150.0,
                     height: 150.0,
                     decoration: BoxDecoration(
-//                            color: Colors.blueAccent[200],
                         color: Colors.transparent,
                         image: DecorationImage(
                             image: NetworkImage(
@@ -98,7 +99,7 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 new ListTile(
                                   leading:
-                                      Icon(Icons.email, color: Colors.blue),
+                                      Icon(Icons.email, color: Color.fromRGBO(0, 0, 51, 100)),
                                   title: Text("${user.email}",
                                       style: TextStyle(
                                         color: Colors.blueGrey,
@@ -113,7 +114,7 @@ class _ProfileState extends State<Profile> {
                                 ),
                                 ListTile(
                                   leading: Icon(Icons.phone_android,
-                                      color: Colors.blue),
+                                      color: Color.fromRGBO(0, 0, 51, 100)),
                                   title: Text("${user.phoneNumber}",
                                       style: TextStyle(
                                         color: Colors.blueGrey,
@@ -127,10 +128,10 @@ class _ProfileState extends State<Profile> {
                                   ),
                                 ),
                                 ListTile(
-                                  leading: Icon(Icons.cake, color: Colors.blue),
+                                  leading: Icon(Icons.cake, color: Color.fromRGBO(0, 0, 51, 100)),
                                   title: Text(getFormattedDate(user.dob),
                                       style: TextStyle(
-                                        color: Colors.blueGrey,
+                                          color: Color.fromRGBO(0, 0, 51, 100)
                                       )),
                                 ),
                                 Padding(
@@ -150,7 +151,7 @@ class _ProfileState extends State<Profile> {
                                   },
                                   leading: Icon(
                                     Icons.help,
-                                    color: Colors.blue,
+                                      color: Color.fromRGBO(0, 0, 51, 100)
                                   ),
                                   title: Text("Contact Us",
                                       style: TextStyle(
@@ -188,7 +189,6 @@ class getClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = new Path();
-
     path.lineTo(0.0, size.height / 1.9);
     path.lineTo(size.width + 165, 0.0);
     path.close();

@@ -28,48 +28,29 @@ class _PreviewScreenState extends State<PreviewScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-      ),
+      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               flex: 2,
-              child: Image.file(File(widget.imgPath),fit: BoxFit.contain,),
+              child: Image.file(
+                File(widget.imgPath),fit: BoxFit.contain,
+              ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                height: 60.0,
-                color: Colors.black,
-                child: Center(
-                  child: Column(
-
-                  children: <Widget>[
-                    /*IconButton(
-                      icon: Icon(Icons.share,color: Colors.white,),
-                      onPressed: (){
-                        getBytesFromFile().then((bytes){
-                          Share.file('Share via', basename(widget.imgPath), bytes.buffer.asUint8List(),'image/path');
-                        });
-                      },
-
-                    ),*/
-                    IconButton(
-                      icon: Icon(Icons.save,color: Colors.white,),
-                      onPressed: (){
-                        print("uploading file");
-                        uploadFile();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
-                      },
-                    ),
-                  ],
-                  )
-
-
+            Container(
+              color: Color.fromRGBO(0, 0, 51, 100),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                  icon: Icon(Icons.save,color: Colors.white,size: 40,),
+                  onPressed: (){
+                    print("uploading file");
+                    uploadFile();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+                  },
                 ),
               ),
             )
