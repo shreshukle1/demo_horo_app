@@ -34,7 +34,9 @@ class _HoroscopeListState extends State<HoroscopeList> {
                 child: Column(children: getSunSignWidgets()))));
   }
 
-  static const SUN_SIGNS = {
+  static const SUN_SIGNS =
+
+  {
     "Aries": "March 21 – April 19",
     "Taurus": "April 20 – May 20",
     "Gemini": " May 21 – June 20",

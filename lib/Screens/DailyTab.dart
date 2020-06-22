@@ -25,7 +25,7 @@ class DailyTab extends StatelessWidget {
             return SingleChildScrollView(
                 child: Text(
               snapshot.data.horoscope == null ? "" : snapshot.data.horoscope,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, color: Colors.white),
             ));
           } else {
             return new CircularProgressIndicator();

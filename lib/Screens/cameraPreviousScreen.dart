@@ -10,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
+import 'package:demohoroapp/Components/BottomNav.dart';
 
 class PreviewScreen extends StatefulWidget{
   final String imgPath;
@@ -62,7 +63,7 @@ class _PreviewScreenState extends State<PreviewScreen>{
                       onPressed: (){
                         print("uploading file");
                         uploadFile();
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
                       },
                     ),
                   ],

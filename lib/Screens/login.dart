@@ -29,87 +29,88 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
 
-            Container(
-              padding: EdgeInsets.fromLTRB(30.0, 100.0, 30.0, 0.0),
+            SizedBox(height: 50.0),
+            Image.asset('images/topStar.png',height: 200,),
+
+            SizedBox(height: 30.0),
+
+            Form(
+              key:_formKey,
               child:
-              CircleAvatar(
-                radius: 70.0,
-                backgroundColor: Color.fromRGBO(40, 40, 77, 100),
-                backgroundImage: AssetImage('images/topStar.png'),),
-            ),
+              Column(
+                children: <Widget>[
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 30.0),
-
-                Form(
-                  key:_formKey,
-                  child:
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                  Container(
+                    decoration: BoxDecoration(
+//                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                    ),
+                    child: TextFormField(
+                        
+                      validator: (input) {
+                        if (input.isEmpty & !input.contains('@')) {
+                          return 'Provide an email';
+                        }
+                      },
+                      style: TextStyle(
+                          color: Colors.white
                       ),
-                      TextFormField(
-                        validator: (input) {
-                          if (input.isEmpty & !input.contains('@')) {
-                            return 'Provide an email';
-                          }
-                        },
-                        style: TextStyle(
+                      decoration: InputDecoration(
+                          hintText: 'Email',
+                        hintStyle: TextStyle(color: Colors.white70),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            borderSide: BorderSide(color: Colors.white)) ,
+
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            borderSide: BorderSide(color: Colors.white)),
+                      ),
+                      onSaved: (input) => _email = input,
+
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                  ),
+                  TextFormField(
+
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return 'Provide a password which has more then 6 characters';
+                      }
+                    },
+                    style: TextStyle(
+                        color: Colors.white
+                    ),
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: TextStyle(color: Colors.white70),
+
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
                             color: Colors.white
                         ),
-                        decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
-                                color: Colors.white
-                            ),
-                            border: new OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(4)),
-                                borderSide: new BorderSide(color: Colors.white)
-                            )
-                        ),
-                        onSaved: (input) => _email = input,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))) ,
 
-                      ),
-                      SizedBox(height: 5.0),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                      ),
-                      TextFormField(
-                        validator: (input) {
-                          if (input.length < 6) {
-                            return 'Provide a password which has more then 6 characters';
-                          }
-                        },
-                        style: TextStyle(
-                            color: Colors.white
-                        ),
-                        decoration: InputDecoration(
-                            labelText: 'Password',
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                          borderSide: BorderSide(color: Colors.white)),
 
-                            labelStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
-                                color: Colors.white
-                            ),
-                            border: new OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(4)),
-                                borderSide: new BorderSide(color: Colors.white)
-                            )
+                    ),
+                    obscureText: true,
+                    onSaved: (input) => _password = input,
 
-                        ),
-                        obscureText: true,
-                        onSaved: (input) => _password = input,
+                  ),
 
-                      ),
-
-                      SizedBox(height: 20),
+                  SizedBox(height: 20),
 
 //                    Container(
 //
@@ -125,75 +126,70 @@ class _LoginPageState extends State<LoginPage> {
 //                            ),)
 //                      ),
 //                    ),
-                      SizedBox(height: 30),
-                      Container(
-                        height: 40,
-                        width: 300,
-                        child: GestureDetector(
-                            onTap: signIn,
-                            child: Material(
+                  SizedBox(height: 30),
+                  Container(
+                    height: 40,
+                    width: 300,
+                    child: GestureDetector(
+                        onTap: signIn,
+                        child: Material(
 
-                              borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(30.0),
 
-                              color: Colors.white,
-                              elevation: 20.0,
-                              child: Center(
+                          color: Colors.white,
+                          elevation: 20.0,
+                          child: Center(
 
-                                child: Text('Login',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'Montserrat',
-                                  ),),
+                            child: Text('Login',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat',
+                              ),),
 
-                              ),
+                          ),
 
-                            )
+                        )
 
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      Container(
-                        height: 40,
-                        width: 300,
-                        child: GestureDetector(
-                            onTap:(){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
-                            },
-                            child: Material(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: Colors.white,
-                              elevation: 20.0,
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    height: 40,
+                    width: 300,
+                    child: GestureDetector(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                        },
+                        child: Material(
+                          borderRadius: BorderRadius.circular(30.0),
+                          color: Colors.white,
+                          elevation: 20.0,
 
-                              child: Center(
-                                child: Text('Sign Up',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'Montserrat',
-                                  ),),
+                          child: Center(
+                            child: Text('Sign Up',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat',
+                              ),),
 
-                              ),
+                          ),
 
-                            )
+                        )
 
-                        ),
-                      ),
-
-                    ],
+                    ),
                   ),
 
+                ],
+              ),
 
-                )
 
-
-
-              ],
             )
 
+
+
           ],
-
-
         ),
       ),
     );

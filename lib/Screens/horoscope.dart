@@ -15,49 +15,56 @@ class HoroscopeSign extends StatelessWidget {
 
   TabController controller;
   final List<Tab> mytabs = <Tab>[
-    Tab(child: Text("Today",style: TextStyle(color:Colors.black),)),
-    Tab(child: Text("Weekly",style: TextStyle(color:Colors.black)),),
-    Tab(child: Text("Yearly",style: TextStyle(color:Colors.black)),),
+    Tab(child: Text("Today",style: TextStyle(color:Colors.white),)),
+    Tab(child: Text("Weekly",style: TextStyle(color:Colors.white)),),
+    Tab(child: Text("Yearly",style: TextStyle(color:Colors.white)),),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
-        body: new Column(
-          children: [
-            new Container(
-              child:
-              Image.asset("images/aries.jpg"),
-            ),
-            Flexible(
-              child: new Container(
-                height: 380,
-                width: double.infinity,
-                child: DefaultTabController(
-                  length: 3,
+        body: new Container(
+        color: Color.fromRGBO(0, 0, 51, 100),
 
-                  child: Scaffold(
+          child: DefaultTabController(
+            length: 3,
 
-                    body: TabBarView(
-                    children: <Widget>[DailyTab(selectedSunSign),
-                      WeeklyTab(selectedSunSign),
-                      YearlyTab(selectedSunSign),
+            child: Scaffold(
 
-                    ],
+              appBar: AppBar(
+                centerTitle: true,
+                title: Text(selectedSunSign),
+                backgroundColor: Color.fromRGBO(0, 0, 51, 100),
 
-                  ),
-                  ),
+                bottom: TabBar(
+                  indicatorColor: Color.fromRGBO(0, 0, 51, 100),
+                    tabs: mytabs
+                ),
+              ),
+              body: Container(
+                color: Color.fromRGBO(0, 0, 51, 100),
+                child: TabBarView(
+
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: DailyTab(selectedSunSign),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: WeeklyTab(selectedSunSign),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: YearlyTab(selectedSunSign),
+                    ),
+
+                  ],
+
                 ),
               ),
             ),
-            Container(
-              child:  TabBar(
-                  tabs: mytabs
-              ),
-            )
-
-          ],
+          ),
         )
     );
   }
