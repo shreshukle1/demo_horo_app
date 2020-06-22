@@ -19,15 +19,19 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildName() {
     return TextFormField(
       decoration: InputDecoration(
-        border: new OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: new BorderSide(color: Colors.white)
+        hintStyle: TextStyle(
+          color: Colors.white70,
         ),
-        labelText: 'Name',
-        labelStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white
-        ),
+
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+            borderSide: BorderSide(color: Colors.white)) ,
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+            borderSide: BorderSide(color: Colors.white)),
+
+        hintText: 'Name',
+
       ),
       validator: (String value){
         if (value.isEmpty){
@@ -43,15 +47,19 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildEmail() {
     return TextFormField(
       decoration: InputDecoration(
-          border: new OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: new BorderSide(color: Colors.white)
+          hintStyle: TextStyle(
+            color: Colors.white70,
           ),
-          labelText: 'Email',
-          labelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white
-          )),
+
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              borderSide: BorderSide(color: Colors.white)) ,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              borderSide: BorderSide(color: Colors.white)),
+
+          hintText: 'Email',
+          ),
       keyboardType: TextInputType.emailAddress,
       validator: (String value) {
         if (value.isEmpty) {
@@ -73,15 +81,21 @@ class FormScreenState extends State<FormScreen> {
   Widget _buildPhoneNumber() {
     return TextFormField(
       decoration: InputDecoration(
-          border: new OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
-              borderSide: new BorderSide(color: Colors.white)
+        hintText: 'Phone Number',
+
+
+        hintStyle: TextStyle(
+            color: Colors.white70,
           ),
-          labelText: 'Phone Number',
-          labelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white
-          )),
+
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              borderSide: BorderSide(color: Colors.white)) ,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              borderSide: BorderSide(color: Colors.white)),
+
+      ),
       keyboardType: TextInputType.phone,
       validator: (String value){
         if (value.isEmpty){
@@ -97,37 +111,53 @@ class FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
-      appBar: AppBar(),
-      body: Container(
-        margin: EdgeInsets.all(24.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildName(),
-              _buildEmail(),
-              _buildPhoneNumber(),
-              SizedBox(height: 100),
-              RaisedButton(
-                child: Text('Submit',
-                  style: TextStyle(color:Colors.blueGrey.shade900),
+      backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildName(),
+                SizedBox(height: 10),
+                _buildEmail(),
+                SizedBox(height: 10),
+                _buildPhoneNumber(),
+                SizedBox(height: 50),
+
+                SizedBox(
+                  height: 40,
+                  width: 250,
+                  child: RaisedButton(
+                     shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0),
                 ),
-                onPressed: () {
-                  if(!_formKey.currentState.validate()){
-                    return;
-                  }
+                    child: Text('Submit',
+                      style: TextStyle(color:Colors.blueGrey.shade900),
+                    ),
+                    onPressed: () {
+                      if(!_formKey.currentState.validate()){
+                        return;
+                      }
 
-                  _formKey.currentState.save();
+                      _formKey.currentState.save();
 
-                  print(_name);
-                  print(_email);
-                  print(_phoneNumber);
+                      print(_name);
+                      print(_email);
+                      print(_phoneNumber);
 
-                },
-              ),
-            ],
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
