@@ -96,7 +96,8 @@ class _SignUpState extends State<SignUp> {
                                   ),
 
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0)
+                                      ),
                                       borderSide: BorderSide(color: Colors.white)) ,
                                   focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -135,15 +136,33 @@ class _SignUpState extends State<SignUp> {
                               ),
                               SizedBox(height: 10.0),
 
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(10,0,0,0),
-                                child: BasicDateField(
-                                    "Date of Birth",
-                                        (date) => {
-                                      _dob = date.toIso8601String()
-                                    }
+                              Container(
+                       padding: const EdgeInsets.all(5.0),
+
+
+                                decoration: (
+                                    BoxDecoration(
+                                        border: Border.all(color: Colors.white),
+                                      borderRadius: BorderRadius.all(Radius.circular(50.0))
+
+                                    )
+                                ),
+
+
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: BasicDateField(
+
+                                      "Date of Birth",
+                                          (date) => {
+                                        _dob = date.toIso8601String()
+                                      }
+                                  ),
                                 ),
                               ),
+
+                              SizedBox(height: 10.0),
+
 
 
                               TextFormField(
