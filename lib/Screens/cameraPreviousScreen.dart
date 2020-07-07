@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:demohoroapp/Components/BottomNav.dart';
+import 'package:flushbar/flushbar.dart';
 
 class PreviewScreen extends StatefulWidget{
   final String imgPath;
@@ -23,6 +24,7 @@ class PreviewScreen extends StatefulWidget{
 
 }
 class _PreviewScreenState extends State<PreviewScreen>{
+  Flushbar flush;
   String _uploadedFileURL;
   File _image;
   @override
@@ -73,6 +75,17 @@ class _PreviewScreenState extends State<PreviewScreen>{
     StorageUploadTask uploadTask = storageReference.putFile(File(widget.imgPath));
     await uploadTask.onComplete;
     print('File Uploaded');
+    flush= Flushbar<bool>(
+      mainButton: FlatButton(
+        onPressed: (){
+          flush.dismiss(true);
+        },
+        child: Text('OK',style: TextStyle(fontSize: 16.0, color: Colors.yellow, fontWeight: FontWeight.bold),),
+      ),
+      borderRadius: 10,
+      message: "Image Uploaded",
+      duration: Duration(seconds: 6),
+    );
     storageReference.getDownloadURL().then((fileURL) {
       setState(() {
         _uploadedFileURL = fileURL;

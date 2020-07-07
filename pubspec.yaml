@@ -43,6 +43,7 @@ dependencies:
   ff_navigation_bar: ^0.1.4
   camera:
   esys_flutter_share: ^1.0.2
+  flushbar:
 
 
 
