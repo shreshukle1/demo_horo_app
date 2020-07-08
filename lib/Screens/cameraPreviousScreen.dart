@@ -46,21 +46,23 @@ class _PreviewScreenState extends State<PreviewScreen>{
               color: Color.fromRGBO(0, 0, 51, 100),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  icon: Icon(Icons.save,color: Colors.white,size: 40,),
-                  onPressed: (){
-                    print("uploading file");
-                    uploadFile();
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
-                  },
-                ),
+
+                child: SnakeBar(),
               ),
-            )
+            ),
+
           ],
         ),
       ),
     );
   }
+
+
+
+
+
+
+
 
   Future<ByteData> getBytesFromFile() async{
     Uint8List bytes = File(widget.imgPath).readAsBytesSync() as Uint8List;
@@ -75,21 +77,38 @@ class _PreviewScreenState extends State<PreviewScreen>{
     StorageUploadTask uploadTask = storageReference.putFile(File(widget.imgPath));
     await uploadTask.onComplete;
     print('File Uploaded');
-    flush= Flushbar<bool>(
-      mainButton: FlatButton(
-        onPressed: (){
-          flush.dismiss(true);
-        },
-        child: Text('OK',style: TextStyle(fontSize: 16.0, color: Colors.yellow, fontWeight: FontWeight.bold),),
-      ),
-      borderRadius: 10,
-      message: "Image Uploaded",
-      duration: Duration(seconds: 6),
-    );
+
     storageReference.getDownloadURL().then((fileURL) {
       setState(() {
         _uploadedFileURL = fileURL;
       });
     });
+  }
+}
+
+
+class SnakeBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      color: Color.fromRGBO(0, 0, 51, 100),
+      onPressed: () {
+        final snackBar = SnackBar(
+
+          content: Text('Your Photo has uploaded'),
+          action: SnackBarAction(
+            label: 'ok',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+            },
+          ),
+        );
+
+        // Find the Scaffold in the widget tree and use
+        // it to show a SnackBar.
+        Scaffold.of(context).showSnackBar(snackBar);
+      },
+      child: Text("Send",style: TextStyle(color: Colors.white,fontSize: 20),)
+    );
   }
 }
