@@ -137,9 +137,7 @@ class _SignUpState extends State<SignUp> {
                               SizedBox(height: 10.0),
 
                               Container(
-                       padding: const EdgeInsets.all(5.0),
-
-
+                                height: 60,
                                 decoration: (
                                     BoxDecoration(
                                         border: Border.all(color: Colors.white),
@@ -147,16 +145,16 @@ class _SignUpState extends State<SignUp> {
 
                                     )
                                 ),
-
-
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: BasicDateField(
+                                  padding: const EdgeInsets.fromLTRB(10,20,0,10),
+                                  child: SingleChildScrollView(
 
-                                      "Date of Birth",
-                                          (date) => {
-                                        _dob = date.toIso8601String()
-                                      }
+                                    child: BasicDateField(
+                                        "Date of Birth",
+                                            (date) => {
+                                          _dob = date.toIso8601String()
+                                        }
+                                    ),
                                   ),
                                 ),
                               ),
