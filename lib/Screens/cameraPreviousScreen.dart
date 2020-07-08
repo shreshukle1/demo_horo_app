@@ -97,7 +97,7 @@ class SnakeBar extends StatelessWidget {
 
           content: Text('Your Photo has uploaded'),
           action: SnackBarAction(
-            label: 'ok',
+            label: 'Next',
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
             },
