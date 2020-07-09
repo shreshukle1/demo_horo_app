@@ -233,7 +233,7 @@ class _LoginPageState extends State<LoginPage> {
         Dialogs.showLoadingDialog(context, _keyLoader);
         AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
-        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
       }catch(e){
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
         Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
