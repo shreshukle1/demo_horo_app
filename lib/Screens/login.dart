@@ -6,6 +6,35 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/rendering.dart';
 import 'home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
+
+//_saveCredentisla(email, pass) async {
+//  if(_rememberMe){
+//    SharedPreferences prefs = await SharedPreferences.getInstance();
+//    await prefs.setString('email', email);
+//    await prefs.setString('pass', pass);
+//  }
+//  return true;
+//
+//}
+//
+////after opening the app it checks in the local data of app if there it found email and pasword than directly redirect to homePage
+//_checkRememberMe() async {
+//  SharedPreferences prefs = await SharedPreferences.getInstance();
+//  var email = prefs.getString('email');
+//  var pass = prefs.getString('pass');
+//  if( email != null && pass != null) {
+//    loginEmailController.text = email;
+//    loginPasswordController.text = pass;
+//    userLogin(loginEmailController.text,loginPasswordController.text);
+//  }
+//}
+
+
+
+
 
 
 class LoginPage extends StatefulWidget {
