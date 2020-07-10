@@ -20,6 +20,10 @@ class _SignUpState extends State<SignUp> {
   String _firstName, _lastName,_email,_password,_confirmpassword,_phoneNumber,_gender;
   var _dob;
 
+
+  List<String> _locations = ['Male', 'Female', 'Others']; // Option 2
+  String _selectedLocation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -193,12 +197,36 @@ class _SignUpState extends State<SignUp> {
 
                               SizedBox(height: 10.0),
 
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                                children: <Widget>[
+                                  DropdownButton(
+                                    hint: Text('Gender'),
+                                    value: _selectedLocation,
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        _selectedLocation = newValue;
+                                      });
+                                    },
+                                    items: _locations.map((location) {
+                                      print(_selectedLocation);
+                                      return DropdownMenuItem(
+                                        child: new Text(location),
+                                        value: location,
+                                      );
+                                    }).toList(),
+                                    ),
+                                ],
+                              ),
+
                               TextFormField(
                                 validator: (input) {
                                   if (input.isEmpty) {
                                     return 'Provide a Gender';
                                   }
                                 },
+
                                 style: TextStyle(
                                     color: Colors.white
                                 ),
