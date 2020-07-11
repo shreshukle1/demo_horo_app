@@ -1,37 +1,13 @@
 import 'package:demohoroapp/Components/BottomNav.dart';
 import 'package:demohoroapp/Components/Dialog.dart';
 import 'package:demohoroapp/Screens/signup.dart';
+import 'package:demohoroapp/check.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/rendering.dart';
 import 'home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
-
-//_saveCredentisla(email, pass) async {
-//  if(_rememberMe){
-//    SharedPreferences prefs = await SharedPreferences.getInstance();
-//    await prefs.setString('email', email);
-//    await prefs.setString('pass', pass);
-//  }
-//  return true;
-//
-//}
-//
-////after opening the app it checks in the local data of app if there it found email and pasword than directly redirect to homePage
-//_checkRememberMe() async {
-//  SharedPreferences prefs = await SharedPreferences.getInstance();
-//  var email = prefs.getString('email');
-//  var pass = prefs.getString('pass');
-//  if( email != null && pass != null) {
-//    loginEmailController.text = email;
-//    loginPasswordController.text = pass;
-//    userLogin(loginEmailController.text,loginPasswordController.text);
-//  }
-//}
-
 
 
 
@@ -45,9 +21,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
   String _email, _password;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +41,11 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
 
             SizedBox(height: 50.0),
-            Image.asset('images/topStar.png',height: 200,),
+            InkWell(
+                onTap:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Check()));
+                },
+                child: Image.asset('images/topStar.png',height: 200,)),
 
             SizedBox(height: 30.0),
 
@@ -139,28 +122,14 @@ class _LoginPageState extends State<LoginPage> {
 
                   ),
 
-                  SizedBox(height: 20),
 
-//                    Container(
-//
-//                    padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-//                      alignment: Alignment(1.0, 0.0),
-//                      child: InkWell(
-//                          child: Text('Forgot Password',
-//                            style: TextStyle(
-//                              color: Colors.orangeAccent,
-//                              fontWeight: FontWeight.bold,
-//                              fontFamily: 'Montserrat',
-//                              decoration: TextDecoration.underline,
-//                            ),)
-//                      ),
-//                    ),
                   SizedBox(height: 30),
                   Container(
                     height: 40,
                     width: 300,
                     child: GestureDetector(
                         onTap: signIn,
+
                         child: Material(
 
                           borderRadius: BorderRadius.circular(30.0),
@@ -168,14 +137,12 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.white,
                           elevation: 20.0,
                           child: Center(
-
                             child: Text('Login',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat',
                               ),),
-
                           ),
 
                         )
@@ -229,40 +196,19 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-/*void signIn() async {
-  if(_formKey.currentState.validate()) {
-    _formKey.currentState.save();
-    print(_email);
-    print(_password);
-    try{
-      print('entereted try');
-      Dialogs.showLoadingDialog(context, _keyLoader);
-      AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-      print('authenticaation done');
-      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
-      Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
-    }catch(e){
-      //Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
-      //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-    }
-    /*catch(e){
-      print(e.message);
-      Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
-    }*/
-  }
-}
-}*/
-
   void signIn() async {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       print(_email);
       print(_password);
+      print(BuildContext );
       try{
         Dialogs.showLoadingDialog(context, _keyLoader);
         AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
+
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+
       }catch(e){
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();
         Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
@@ -270,3 +216,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 }
+
+
+

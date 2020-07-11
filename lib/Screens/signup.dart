@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'database.dart';
 import 'login.dart';
 
@@ -21,14 +21,20 @@ class _SignUpState extends State<SignUp> {
   var _dob;
 
 
-  List<String> _locations = ['Male', 'Female', 'Others']; // Option 2
-  String _selectedLocation;
+  bool isValidDob(String _dob) {
+    if (_dob.isEmpty){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
+  List<String> _locations = ['Male', 'Female', 'Others']; // Option 2
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(40, 40, 77, 100),
-        resizeToAvoidBottomPadding: false,
         body: SafeArea(
             child: SingleChildScrollView(
               child: Column(
@@ -154,18 +160,18 @@ class _SignUpState extends State<SignUp> {
                                   child: SingleChildScrollView(
 
                                     child: BasicDateField(
+
                                         "Date of Birth",
                                             (date) => {
                                           _dob = date.toIso8601String()
                                         }
+
                                     ),
                                   ),
                                 ),
                               ),
 
                               SizedBox(height: 10.0),
-
-
 
                               TextFormField(
                                 validator: (input) {
@@ -197,56 +203,48 @@ class _SignUpState extends State<SignUp> {
 
                               SizedBox(height: 10.0),
 
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              Container(
+                                child: DropDownFormField(
+                                  required: true,
+                                  titleText: null,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Provide a Gender';
+                                    }
+                                  },
 
-                                children: <Widget>[
-                                  DropdownButton(
-                                    hint: Text('Gender'),
-                                    value: _selectedLocation,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        _selectedLocation = newValue;
-                                      });
+                                  hintText: 'Please Select Gender',
+                                  value: _gender,
+                                  onSaved: (value) {
+                                    setState(() {
+                                      _gender = value;
+                                    });
+                                  },
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _gender = value;
+                                    });
+                                  },
+                                  dataSource: [
+                                    {
+                                      "display": "Male",
+                                      "value": "Male",
                                     },
-                                    items: _locations.map((location) {
-                                      print(_selectedLocation);
-                                      return DropdownMenuItem(
-                                        child: new Text(location),
-                                        value: location,
-                                      );
-                                    }).toList(),
-                                    ),
-                                ],
+                                    {
+                                      "display": "Female",
+                                      "value": "Female",
+                                    },
+                                    {
+                                      "display": "Others",
+                                      "value": "Others",
+                                    },
+
+                                  ],
+                                  textField: 'display',
+                                  valueField: 'value',
+                                ),
                               ),
 
-                              TextFormField(
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Provide a Gender';
-                                  }
-                                },
-
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
-
-                                decoration: InputDecoration(
-                                    hintText: 'Gender',
-                                  hintStyle: TextStyle(
-                                    color: Colors.white70,
-                                  ),
-
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)),
-                                ),
-                                onSaved: (input) => _gender = input,
-
-                              ),
 
                               SizedBox(height: 10.0),
 
