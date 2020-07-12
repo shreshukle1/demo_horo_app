@@ -1,11 +1,12 @@
 import 'package:demohoroapp/Screens/database.dart';
+import 'package:demohoroapp/Screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:demohoroapp/Screens/ContactUs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../user.dart';
 
 class Profile extends StatefulWidget {
@@ -167,8 +168,11 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-//                        Navigator.push(context, new MaterialPageRoute(builder: (context) => Login()));
+                  onTap: () async {
+//                        SharedPreferences prefs = await SharedPreferences.getInstance();
+                    prefs.remove('email');
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (BuildContext ctx) => LoginPage()));
                   },
                   child: Container(
                     child: Text("LOGOUT",
