@@ -168,12 +168,14 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () async {
-//                        SharedPreferences prefs = await SharedPreferences.getInstance();
-                    prefs.remove('email');
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (BuildContext ctx) => LoginPage()));
-                  },
+
+                  onTap: ()  async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.remove('_email');
+        Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext ctx) => LoginPage ()));
+        },
+
                   child: Container(
                     child: Text("LOGOUT",
                         style: TextStyle(
