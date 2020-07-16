@@ -36,6 +36,6 @@ void main() async{
   print(email);
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(MaterialApp(home: email==null?LoginPage():bottomNavigationBar())));
+      .then((_) => runApp(MaterialApp(home: email==null?SplashScreen():bottomNavigationBar())));
 }
 

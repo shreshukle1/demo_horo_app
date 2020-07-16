@@ -160,9 +160,12 @@ class _SignUpState extends State<SignUp> {
                                   child: SingleChildScrollView(
 
                                     child: BasicDateField(
-
+                                      
                                         "Date of Birth",
                                             (date) => {
+                                              if(_dob==null){
+                                                 'Provide a valid Phone Number'
+                                              },
                                           _dob = date.toIso8601String()
                                         }
 
@@ -208,7 +211,7 @@ class _SignUpState extends State<SignUp> {
                                   required: true,
                                   titleText: null,
                                   validator: (input) {
-                                    if (input.isEmpty) {
+                                    if (input==null) {
                                       return 'Provide a Gender';
                                     }
                                   },
