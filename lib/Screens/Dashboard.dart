@@ -14,7 +14,7 @@ class _DashboardState extends State<Dashboard> {
   
   User user = new User("firstName", "Lastname", "Email", DateTime.now().toIso8601String(), "Phone Number", "");
    static String getFormattedDate(String date) {
-    return DateFormat("MMM dd, yyyy").format(DateTime.parse(date));
+    return DateFormat("MM, dd, yyyy").format(DateTime.parse(date));
   }
   void main() {
 var a = DateTime.parse(getFormattedDate(user.dob));
@@ -108,9 +108,6 @@ return "last";
       body: Center(
         child:  Column(
           children: <Widget>[
-
-
-
 
 
           ],
