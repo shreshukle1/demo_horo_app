@@ -22,23 +22,11 @@ class _DashboardState extends State<Dashboard> {
    static String getFormattedDate(String date) {
     return DateFormat("yyyy-MM-dd").format(DateTime.parse(date));
   }
-//   void main() {
-// var a = DateTime.parse(getFormattedDate(user.dob));
 
-// if( (a.month == 1 && a.day >= 20) || (a.month == 2 && a.day <= 18 ) ) {
-// print("this is aquaries");
-// }
-// else if( (a.month == 2 && a.day >= 19) || (a.month == 3 && a.day <= 20 ) ) {
-// print("it is not pisces");
-// }
-// else if( (a.month == 3 && a.day >= 21) || (a.month == 4 && a.day <= 19 ) ) {
-// print("it is not aries");
-// }
-
-// } 
 
 String getRashiFromDate() {
-  var a = DateTime.parse(getFormattedDate(user.dob));
+      
+  var a = DateTime.parse(getFormattedDate("${user.dob}"));
 if( (a.month == 1 && a.day >= 20) || (a.month == 2 && a.day <= 18 ) ) {
 print("this is aquaries");
 return "AQUARIOUS";
@@ -92,23 +80,30 @@ return "last";
 
 @override
   void initState() {
+    
+     Horoscope.getDailyHoroscope(getRashiFromDate()).then((val) {
+                      if (val != null) {
+                        setState(() {
+                          time = user.dob.toString();
+                          horoscope = val.horoscope;
+                          sunsign = val.sunsign;
+                          print(val.horoscope);
+                        });
+                      }
+                    });
      FirebaseAuth auth = FirebaseAuth.instance;
     auth.currentUser().then((fu) => {
           DatabaseServices.getUser(fu.email).then((_user) => {
                 setState(() => {user = _user})
               })
         });
+        print(user.dob);
            super.initState();
     return;
     // TODO: implement initState
  
   }
- 
-// void main() {
-// var d = "2020-06-02";
-// var a = DateTime.parse(d);
-// print(getRashiFromDate(a));
-// }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,24 +125,14 @@ return "last";
               width: 85,
               child: FloatingActionButton(
                 onPressed: () {
-                  Horoscope.getDailyHoroscope(getRashiFromDate()).then((val) {
-                      if (val != null) {
-                        setState(() {
-                          time = user.dob.toString();
-                          horoscope = val.horoscope;
-                          sunsign = val.sunsign;
-                        });
-                      }
-                    });
-                  // getRashiFromDate();
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
                 },
                 child: Icon(Icons.center_focus_strong, size: 80,),
                 backgroundColor: Color.fromRGBO(0, 0, 51, 100),
               ),
             ),
-             Text("Time : " + time,style: TextStyle(color: Colors.white),),
-            Text("SunSign : " + sunsign,style: TextStyle(color: Colors.white),)
+            Text( horoscope,style: TextStyle(color: Colors.white),),
           ],
         ),
       ),

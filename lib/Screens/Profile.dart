@@ -30,6 +30,7 @@ class _ProfileState extends State<Profile> {
                 setState(() => {user = _user})
               })
         });
+        print(user.dob);
     return;
   }
 
