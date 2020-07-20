@@ -4,6 +4,8 @@ import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:demohoroapp/Screens/Dashboard.dart';
 import 'package:demohoroapp/Screens/Profile.dart';
 import 'package:demohoroapp/Screens/HoroscopeList.dart';
+import 'package:demohoroapp/Screens/Palm.dart';
+
 
 class bottomNavigationBar extends StatefulWidget {
 
@@ -23,6 +25,14 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        child: Icon(Icons.center_focus_strong,color: Color.fromRGBO(0, 0, 51, 100),),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
+
+        },
+      ),
 
       body: _pageOptions[_selectedPage],backgroundColor: Color.fromRGBO(0, 0, 51, 100),
       bottomNavigationBar: FFNavigationBar(
