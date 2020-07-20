@@ -203,6 +203,9 @@ class _LoginPageState extends State<LoginPage> {
       print(_password);
       print(BuildContext );
       try{
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setString('_email', _email);
         Dialogs.showLoadingDialog(context, _keyLoader);
         AuthResult  result= await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
         Navigator.of(_keyLoader.currentContext,rootNavigator: true).pop();//close the dialoge
