@@ -125,7 +125,7 @@ return "last";
               width: 85,
               child: FloatingActionButton(
                 onPressed: () {
-
+ 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
                 },
                 child: Icon(Icons.center_focus_strong, size: 80,),
@@ -133,6 +133,11 @@ return "last";
               ),
             ),
             Text( horoscope,style: TextStyle(color: Colors.white),),
+            if(sunsign=='CANCER')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Image.asset("images/cancer.jpg",width: 100,height: 100,),
+            )
           ],
         ),
       ),
