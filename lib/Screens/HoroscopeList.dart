@@ -34,13 +34,14 @@ class _HoroscopeListState extends State<HoroscopeList> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            decoration: BoxDecoration(
-                borderRadius: new BorderRadius.circular(10.0),
-                border: Border.all(color: Colors.white)),
             child: ListView.builder(
               itemCount: options.length,
                    itemBuilder: (context, i){
-                          return ListTile(
+                          return Container(
+                            decoration: BoxDecoration(
+                                borderRadius: new BorderRadius.circular(10.0),
+                                border: Border.all(color: Colors.white)),
+                            child: ListTile(
                 onTap: () => {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HoroscopeSign(options[i].sign)))
@@ -52,7 +53,7 @@ class _HoroscopeListState extends State<HoroscopeList> {
                     maxWidth: 44,
                     maxHeight: 44,
                   ),
-                  
+
                   child:options[i].icon
                   //  Image.asset(
                   //   'images/star.jpeg',
@@ -70,7 +71,8 @@ class _HoroscopeListState extends State<HoroscopeList> {
                  options[i].date,
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.w100),
                 ),
-              );
+              ),
+                          );
                    }
             ),
           ),

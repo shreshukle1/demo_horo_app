@@ -107,47 +107,88 @@ return "last";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
+        },
+        child: Icon(Icons.pan_tool, size: 40,),
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      ),
       backgroundColor: Color.fromRGBO(0, 0, 51, 100),
       body: Center(
         child:  Column(
           children: <Widget>[
 
-            SizedBox(height: 200),
-            Container(
-              child: Text("Scan Your Palm",style: TextStyle(
-                fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white,
-                  letterSpacing: 4
-              ),),
-            ),
+//            SizedBox(height: 200),
+//            Container(
+//              child: Text("Scan Your Palm",style: TextStyle(
+//                fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white,
+//                  letterSpacing: 4
+//              ),),
+//            ),
             SizedBox(height: 100,),
-            Container(
-              height: 85,
-              width: 85,
-              child: FloatingActionButton(
-                onPressed: () {
- 
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
-                },
-                child: Icon(Icons.center_focus_strong, size: 80,),
-                backgroundColor: Color.fromRGBO(0, 0, 51, 100),
-              ),
-            ),
             Text( horoscope,style: TextStyle(color: Colors.white),),
-            if(sunsign=='CANCER')
+            if(sunsign=='Aquarius')
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child: Image.asset("images/cancer.jpg",width: 100,height: 100,),
+              child: Image.asset("images/aquarius.jpg",width: 100,height: 100,),
             ),
             if(sunsign=='ARIES')
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Image.asset("images/aries.jpg",width: 100,height: 100,),
             ),
-              if(sunsign=='CAPRICORN')
+            if(sunsign=='CANCER')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Image.asset("images/cancer.jpg",width: 100,height: 100,),
+            ),
+            if(sunsign=='CAPRICORN')
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Image.asset("images/capricorn.jpg",width: 100,height: 100,),
-            )
+              ),
+            if(sunsign=='GEMINI')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/gemini.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='LEO')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/leo.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='LIBRA')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/libra.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='PISCES')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/pisces.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='SAGITTARIUS')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/sagittarius.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='SCORPIO')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/scorpio.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='TAURUS')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/taurus.jpg",width: 100,height: 100,),
+              ),
+            if(sunsign=='VIRGO')
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                child: Image.asset("images/virgo.jpg",width: 100,height: 100,),
+              ),
           ],
         ),
       ),
