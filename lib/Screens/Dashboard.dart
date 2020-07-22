@@ -137,6 +137,16 @@ return "last";
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Image.asset("images/cancer.jpg",width: 100,height: 100,),
+            ),
+            if(sunsign=='ARIES')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Image.asset("images/aries.jpg",width: 100,height: 100,),
+            ),
+              if(sunsign=='CAPRICORN')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Image.asset("images/capricorn.jpg",width: 100,height: 100,),
             )
           ],
         ),
