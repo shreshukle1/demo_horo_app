@@ -112,7 +112,7 @@ return "last";
 
           Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
         },
-        child: Icon(Icons.pan_tool, size: 40,),
+        child: Image.asset("images/scan_black.png"),
         backgroundColor: Color.fromRGBO(0, 0, 51, 100),
       ),
       backgroundColor: Color.fromRGBO(0, 0, 51, 100),
