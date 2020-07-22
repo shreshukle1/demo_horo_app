@@ -23,8 +23,10 @@ class HoroscopeSign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromRGBO(0, 0, 0, 100),
+
         body: new Container(
-        color: Color.fromRGBO(0, 0, 51, 100),
+        color: Color.fromRGBO(0, 0, 0, 100),
 
           child: DefaultTabController(
             length: 3,
@@ -34,16 +36,16 @@ class HoroscopeSign extends StatelessWidget {
               appBar: AppBar(
                 centerTitle: true,
                 title: Text(selectedSunSign),
-                backgroundColor: Color.fromRGBO(0, 0, 0, 100),
+                backgroundColor: Colors.black,
 
 
                 bottom: TabBar(
-                  indicatorColor: Color.fromRGBO(0, 0, 51, 100),
+                  indicatorColor: Color.fromRGBO(0, 0, 0, 100),
                     tabs: mytabs
                 ),
               ),
               body: Container(
-                color: Color.fromRGBO(0, 0, 51, 100),
+                color: Colors.black,
                 child: TabBarView(
 
                   children: <Widget>[

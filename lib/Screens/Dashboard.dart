@@ -14,7 +14,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   String sunsign = "Sunsign",
       time = "Time of Horoscope",
-      horoscope = "Click on Button Above to get Horoscope";
+      horoscope = "Loading........";
 
   String selectedZodiac = ZodiacSigns.CAPRICORN;
 

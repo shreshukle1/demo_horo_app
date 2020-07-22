@@ -10,9 +10,6 @@ import 'home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-
-
-
 class LoginPage extends StatefulWidget {
 
   @override
@@ -41,11 +38,7 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
 
             SizedBox(height: 50.0),
-            InkWell(
-                onTap:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Check()));
-                },
-                child: Image.asset('images/topStar.png',height: 200,)),
+            Image.asset('images/topStar.png',height: 200,),
 
             SizedBox(height: 30.0),
 

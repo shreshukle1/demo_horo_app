@@ -22,6 +22,7 @@ import 'package:demohoroapp/Components/BottomNav.dart';
 
 void main() async{
 
+
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -36,8 +37,12 @@ void main() async{
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var email = prefs.getString('_email');
   print(email);
+
   SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(MaterialApp(home: email==null?SplashScreen():bottomNavigationBar())));
+
+  [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: email==null?SplashScreen():bottomNavigationBar())));
 }
 
