@@ -22,61 +22,67 @@ class _HoroscopeListState extends State<HoroscopeList> {
     return Scaffold(
 
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(40, 40, 77, 100),
-          centerTitle: true,
+          backgroundColor: Color.fromRGBO(0, 0, 0, 100),
+centerTitle: true,
           title: Image.asset(
             "images/topStar.png",
             width: 50,
           ),
         ),
         backgroundColor: Color.fromRGBO(40, 40, 77, 100),
-        body:  InkWell(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            child: ListView.builder(
-              itemCount: options.length,
-                   itemBuilder: (context, i){
-                          return Container(
-                            decoration: BoxDecoration(
-                                borderRadius: new BorderRadius.circular(10.0),
-                                border: Border.all(color: Colors.white)),
-                            child: ListTile(
-                onTap: () => {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HoroscopeSign(options[i].sign)))
-                },
-                leading: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: 44,
-                    minHeight: 44,
-                    maxWidth: 44,
-                    maxHeight: 44,
-                  ),
+        body:  Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: InkWell(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: ListView.builder(
+                itemCount: options.length,
+                     itemBuilder: (context, i){
+                            return Padding(
+                              padding: const EdgeInsets.fromLTRB(2,8,2,8),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: new BorderRadius.circular(10.0),
+                                    border: Border.all(color: Colors.white)),
+                                child: ListTile(
+                  onTap: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HoroscopeSign(options[i].sign)))
+                  },
+                  leading: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minWidth: 44,
+                      minHeight: 44,
+                      maxWidth: 44,
+                      maxHeight: 44,
+                    ),
 
-                  child:options[i].icon
-                  //  Image.asset(
-                  //   'images/star.jpeg',
-                  //   height: 200,
-                  //   width: 300,
-                  //   fit: BoxFit.fill,
-                  // ),
+                    child:options[i].icon
+                    //  Image.asset(
+                    //   'images/star.jpeg',
+                    //   height: 200,
+                    //   width: 300,
+                    //   fit: BoxFit.fill,
+                    // ),
+                  ),
+                  title: Text(
+                     options[i].sign,
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                  subtitle: Text(
+                   options[i].date,
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w100),
+                  ),
                 ),
-                title: Text(
-                   options[i].sign,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                subtitle: Text(
-                 options[i].date,
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w100),
-                ),
+                              ),
+                            );
+                     }
               ),
-                          );
-                   }
             ),
-          ),
-        )));
+          )),
+        ));
   }
 
   // static const SUN_SIGNS =
