@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   Container(
                     decoration: BoxDecoration(
+
 //                        border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
@@ -73,9 +74,10 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                           hintText: 'Email',
                         hintStyle: TextStyle(color: Colors.white70),
+
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                            borderSide: BorderSide(color: Colors.white)) ,
+                            borderSide: BorderSide(color: Colors.grey)) ,
 
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -110,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))) ,
+                          borderSide: BorderSide(color: Colors.grey)) ,
 
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50.0)),

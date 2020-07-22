@@ -25,19 +25,12 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        child: Icon(Icons.center_focus_strong,color: Color.fromRGBO(0, 0, 51, 100),),
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
 
-        },
-      ),
 
       body: _pageOptions[_selectedPage],backgroundColor: Color.fromRGBO(0, 0, 51, 100),
       bottomNavigationBar: FFNavigationBar(
         theme: FFNavigationBarTheme(
-          barBackgroundColor: Color.fromRGBO(0, 0, 51, 100),
+          barBackgroundColor: Color.fromRGBO(0, 0, 0, 100),
           selectedItemBorderColor: Colors.white,
           selectedItemBackgroundColor: Color.fromRGBO(0, 0, 51, 100),
           selectedItemIconColor: Colors.white,

@@ -34,7 +34,8 @@ class HoroscopeSign extends StatelessWidget {
               appBar: AppBar(
                 centerTitle: true,
                 title: Text(selectedSunSign),
-                backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+                backgroundColor: Color.fromRGBO(0, 0, 0, 100),
+
 
                 bottom: TabBar(
                   indicatorColor: Color.fromRGBO(0, 0, 51, 100),

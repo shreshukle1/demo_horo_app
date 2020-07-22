@@ -37,7 +37,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+        backgroundColor: Color.fromRGBO(0, 0, 0, 100),
 
         body: new Stack(
 
@@ -150,11 +150,11 @@ class _ProfileState extends State<Profile> {
                                 ),
                                 ListTile(
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                FormScreen()));
+//                                    Navigator.push(
+//                                        context,
+//                                        MaterialPageRoute(
+//                                            builder: (context) =>
+//                                                FormScreen()));
                                   },
                                   leading: Icon(
                                     Icons.help,
@@ -187,7 +187,9 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             letterSpacing: 4,
-                            fontSize: 15)),
+                            fontSize: 15,
+                          color: Colors.white
+                        )),
                   ),
                 )
               ],

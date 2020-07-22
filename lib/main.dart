@@ -21,6 +21,7 @@ import 'package:demohoroapp/Components/BottomNav.dart';
 
 
 void main() async{
+
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -29,6 +30,7 @@ void main() async{
         statusBarIconBrightness: Brightness.dark, //top bar icons
         systemNavigationBarColor: Colors.white, //bottom bar color
         systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
+
       )
   );
   SharedPreferences prefs = await SharedPreferences.getInstance();
