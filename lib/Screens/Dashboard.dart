@@ -113,6 +113,13 @@ return "last";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton:FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
+        },
+        child: Icon(Icons.settings_backup_restore, size: 80,),
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
+      ) ,
 
       backgroundColor: Color.fromRGBO(0, 0, 51, 100),
       body: Center(
@@ -120,19 +127,13 @@ return "last";
           children: <Widget>[
 
             SizedBox(height: 100,),
-            Container(
-              height: 85,
-              width: 85,
-              child: FloatingActionButton(
-                onPressed: () {
 
-//                  Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen()));
-                },
-                child: Icon(Icons.settings_backup_restore, size: 80,),
-                backgroundColor: Color.fromRGBO(0, 0, 51, 100),
-              ),
-            ),
             Text( horoscope,style: TextStyle(color: Colors.white),),
+            if(sunsign=='CANCER')
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: Image.asset("images/cancer.jpg",width: 100,height: 100,),
+            )
           ],
         ),
       ),
