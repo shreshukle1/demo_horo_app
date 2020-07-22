@@ -15,7 +15,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  User user = new User("firstName", "Lastname", "Email", DateTime.now().toIso8601String(), "Phone Number", "");
+  User user = new User("firstName", "Lastname", "Email", DateTime.now().toString(), "Phone Number", "");
 
   static String getFormattedDate(String date) {
     return DateFormat("MM, dd, yyyy").format(DateTime.parse(date));
@@ -30,14 +30,17 @@ class _ProfileState extends State<Profile> {
                 setState(() => {user = _user})
               })
         });
+        print(user.dob);
     return;
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
 
         body: new Stack(
+
       children: <Widget>[
         ClipPath(
           child: Container(
@@ -85,6 +88,7 @@ class _ProfileState extends State<Profile> {
                 Text(
                   user.firstName,
                   style: TextStyle(
+                    color: Colors.white,
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Montserrat'),
@@ -100,11 +104,13 @@ class _ProfileState extends State<Profile> {
                               children: <Widget>[
                                 new ListTile(
                                   leading:
-                                      Icon(Icons.email, color: Color.fromRGBO(0, 0, 51, 100)),
+                                      Icon(Icons.email, color: Color.fromRGBO(0, 0, 51, 100),),
                                   title: Text("${user.email}",
                                       style: TextStyle(
                                         color: Colors.blueGrey,
                                       )),
+
+
                                 ),
                                 Padding(
                                   padding:

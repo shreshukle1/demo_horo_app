@@ -8,7 +8,10 @@ import 'package:horoscope/horoscope_flutter.dart';
 class HoroscopeList extends StatefulWidget {
   HoroscopeList({Key key, this.name}) : super(key: key);
   final String name;
-
+  final icons = [Icons.directions_bike, Icons.directions_boat,
+    Icons.directions_bus, Icons.directions_car, Icons.directions_railway,
+    Icons.directions_run, Icons.directions_subway, Icons.directions_transit,
+    Icons.directions_walk];
   @override
   _HoroscopeListState createState() => _HoroscopeListState();
 }
@@ -19,16 +22,16 @@ class _HoroscopeListState extends State<HoroscopeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromRGBO(0, 0, 51, 100),
 
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(40, 40, 77, 100),
+          backgroundColor: Color.fromRGBO(0, 0, 51, 100),
           centerTitle: true,
           title: Image.asset(
             "images/topStar.png",
             width: 50,
           ),
         ),
-        backgroundColor: Color.fromRGBO(40, 40, 77, 100),
         body: Container(
             child: SingleChildScrollView(
                 child: Column(children: getSunSignWidgets()))));
