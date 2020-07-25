@@ -132,8 +132,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/Big_aquarius.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'ARIES')
@@ -141,8 +141,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/aries-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'CANCER')
@@ -150,8 +150,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/Big_cancer.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'CAPRICORN')
@@ -159,8 +159,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/capricorn-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'GEMINI')
@@ -168,8 +168,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/gemini-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'LEO')
@@ -177,8 +177,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/leo-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'LIBRA')
@@ -186,8 +186,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/libra-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'PISCES')
@@ -195,8 +195,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/pisces-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'SAGITTARIUS')
@@ -204,8 +204,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/sagittarius-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'SCORPIO')
@@ -213,8 +213,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/scorpio-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'TAURUS')
@@ -222,8 +222,8 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                 child: Image.asset(
                   "images/taurus-removebg-preview.png",
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             if (sunsign == 'VIRGO')
@@ -232,7 +232,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Image.asset(
                   "images/virgo-removebg-preview.png",
                   width: MediaQuery.of(context).size.width * 0.40,
-                  height: MediaQuery.of(context).size.height * 0.40,
+                  height: MediaQuery.of(context).size.height * 0.30,
                 ),
               ),
             Padding(

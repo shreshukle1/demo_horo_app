@@ -48,7 +48,8 @@ class _ProfileState extends State<Profile> {
           clipper: getClipper(),
         ),
         Positioned(
-            width: 350.0,
+
+          width: MediaQuery.of(context).size.width,
             top: MediaQuery.of(context).size.height / 5,
             child: Column(
               children: <Widget>[
@@ -66,25 +67,7 @@ class _ProfileState extends State<Profile> {
                         boxShadow: [
 //                              BoxShadow(blurRadius: 7.0, color: Colors.black)
                         ])),
-//                    Container(
-//                        height: 30.0,
-//                        width: 95.0,
-//                        child: Material(
-//                          borderRadius: BorderRadius.circular(20.0),
-//                          shadowColor: Colors.black,
-//                          color: Colors.grey,
-//                          elevation: 7.0,
-//                          child: GestureDetector(
-//                            onTap: () {},
-//                            child: Center(
-//                              child: Text(
-//                                'Edit Profile',
-//                                style: TextStyle(
-//                                    color: Colors.white, fontFamily: 'Montserrat'),
-//                              ),
-//                            ),
-//                          ),
-//                        )),
+
                 Text(
                   user.firstName,
                   style: TextStyle(
@@ -94,7 +77,7 @@ class _ProfileState extends State<Profile> {
                       fontFamily: 'Montserrat'),
                 ),
                 Container(
-                  padding: new EdgeInsets.all(20.0),
+                  padding: new EdgeInsets.all(8.0),
                   child: new Center(
                     child: new Column(
                       children: <Widget>[

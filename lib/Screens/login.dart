@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(40, 40, 77, 100),
+      backgroundColor: Color.fromRGBO(0, 0, 0, 100),
       resizeToAvoidBottomPadding: false,
 
       body: Padding(

@@ -34,19 +34,11 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(40, 40, 77, 100),
+        backgroundColor: Color.fromRGBO(0, 0, 0, 100),
         body: SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-
-                  Container(
-                    padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-                    child: Text('My Daily Horoscope',
-                        style: TextStyle(fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                  ),
 
                   Padding(
                     padding: const EdgeInsets.all(8.0),
