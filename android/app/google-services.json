@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920994178877:android:738f010b9f72c5fa3d8754",
+        "android_client_info": {
+          "package_name": "com.somveda.palmo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920994178877-haafcras0ln8fr7jmcrsa3emma88ohdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpfCSqThKZzrbyXaf8WQli28Eig53890o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920994178877-haafcras0ln8fr7jmcrsa3emma88ohdm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

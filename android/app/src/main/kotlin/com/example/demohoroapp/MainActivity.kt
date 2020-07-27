@@ -1,4 +1,4 @@
-package com.example.demohoroapp
+package com.somveda.palmo
 
 import io.flutter.embedding.android.FlutterActivity
 
