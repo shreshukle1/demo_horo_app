@@ -215,6 +215,9 @@ class _SignUpState extends State<SignUp> {
                                   onChanged: (value) {
                                     setState(() {
                                       _gender = value;
+                                      style: new TextStyle(
+                                        color:Colors.white,
+                                      );
                                     });
                                   },
                                   dataSource: [

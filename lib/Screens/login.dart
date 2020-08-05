@@ -9,14 +9,23 @@ import 'package:flutter/rendering.dart';
 import 'home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+bool _obscureText = true;
+
+
 
 class LoginPage extends StatefulWidget {
+
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -86,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextFormField(
 
+
                     validator: (input) {
                       if (input.length < 6) {
                         return 'Provide a password which has more then 6 characters';
@@ -110,12 +120,25 @@ class _LoginPageState extends State<LoginPage> {
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50.0)),
                           borderSide: BorderSide(color: Colors.white)),
+                      suffixIcon: new GestureDetector(
+                        onTap: _toggle,
+                        child:
+                        new Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+                      ),
 
                     ),
-                    obscureText: true,
+//                    obscureText: true,
                     onSaved: (input) => _password = input,
+                    obscureText: _obscureText,
+
+
 
                   ),
+
+
+//                  new FlatButton(
+//                      onPressed: _toggle,
+//                      child: new Text(_obscureText ? "Show" : "Hide",style: TextStyle(color:Colors.white),)),
 
 
                   SizedBox(height: 30),
