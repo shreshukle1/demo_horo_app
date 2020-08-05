@@ -60,8 +60,7 @@ class _ProfileState extends State<Profile> {
                     decoration: BoxDecoration(
                         color: Colors.transparent,
                         image: DecorationImage(
-                            image: NetworkImage(
-                                'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-512.png'),
+                            image: AssetImage("images/male.png"),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.all(Radius.circular(75.0)),
                         boxShadow: [

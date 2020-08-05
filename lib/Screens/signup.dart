@@ -63,10 +63,10 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white
                                 ),
                                 decoration: InputDecoration(
-                                    hintText: 'First Name',
-                                    hintStyle: TextStyle(
-                                      color: Colors.white70,
-                                    ),
+                                  hintText: 'First Name',
+                                  hintStyle: TextStyle(
+                                    color: Colors.white70,
+                                  ),
 
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
@@ -92,7 +92,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white
                                 ),
                                 decoration: InputDecoration(
-                                    hintText: 'Last Name',
+                                  hintText: 'Last Name',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white
                                 ),
                                 decoration: InputDecoration(
-                                    hintText: 'Email',
+                                  hintText: 'Email',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
@@ -151,7 +151,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
 
                                 decoration: InputDecoration(
-                                    hintText: 'Mobile Number',
+                                  hintText: 'Mobile Number',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
@@ -183,7 +183,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white
                                 ),
                                 decoration: InputDecoration(
-                                    hintText: 'Password',
+                                  hintText: 'Password',
 
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
@@ -213,7 +213,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.white
                                 ),
                                 decoration: InputDecoration(
-                                    hintText: 'Confirm Password',
+                                  hintText: 'Confirm Password',
 
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
@@ -236,56 +236,45 @@ class _SignUpState extends State<SignUp> {
 
 
                               Container(
-                                child: Theme(
-                                  data: new ThemeData(
-                                    primaryColor: Colors.white,
-                                    hintColor: Colors.white70,
+                                child: new Theme(
+                                  data: Theme.of(context).copyWith(
+                                    canvasColor: Color.fromRGBO(0, 0, 51, 100),
                                   ),
-                                  child: DropDownFormField(
-                                    required: true,
-                                    titleText: null,
-                                    validator: (input) {
-                                      if (input==null) {
-                                        return 'Provide a Gender';
-                                      }
-                                    },
-
-                                    hintText: 'Please Select Gender',
+                                  child: DropdownButtonFormField(
+                                    style: TextStyle(color: Colors.white, fontSize: 16),
+                                    iconEnabledColor: Colors.white,
+                                    decoration: InputDecoration(
+//                                        enabledBorder: OutlineInputBorder(
+//                                            borderRadius: BorderRadius.all(Radius.circular(8)),
+//                                            borderSide: BorderSide(color: Colors.grey[200])),
+//                                        focusedBorder: OutlineInputBorder(
+//                                            borderRadius: BorderRadius.all(Radius.circular(8)),
+//                                            borderSide: BorderSide(color: Colors.grey[300])),
+                                        filled: true,
+                                        fillColor: Color.fromARGB(0, 0, 0, 1),
+                                        hintText: "Enter your gender",
+                                        hintStyle: TextStyle(color: Colors.white)),
+                                    hint: Text(
+                                      '',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                     value: _gender,
-                                    onSaved: (value) {
+                                    onChanged: (newValue) {
                                       setState(() {
-                                        _gender = value;
+                                        _gender = newValue;
                                       });
                                     },
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _gender = value;
-                                        TextStyle(color: Colors.white);
-//                                      style: new TextStyle(
-//                                        color:Colors.white,
-//                                      );
-                                      });
-                                    },
-                                    dataSource: [
-                                      {
-                                        "display": "Male",
-                                        "value": "Male",
-                                      },
-                                      {
-                                        "display": "Female",
-                                        "value": "Female",
-                                      },
-                                      {
-                                        "display": "Others",
-                                        "value": "Others",
-                                      },
-
-                                    ],
-                                    textField: 'display',
-                                    valueField: 'value'
-
+                                    items: _locations.map((location) {
+                                      return DropdownMenuItem(
+                                        child: new Text(
+                                          location,
+                                        ),
+                                        value: location,
+                                      );
+                                    }).toList(),
                                   ),
                                 ),
+
                               ),
                               SizedBox(height: 10.0),
 
