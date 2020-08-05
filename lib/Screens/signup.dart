@@ -136,32 +136,7 @@ class _SignUpState extends State<SignUp> {
                                 onSaved: (input) => _email = input,
 
                               ),
-                              SizedBox(height: 10.0),
 
-                              Container(
-                                height: 60,
-                                decoration: (
-                                    BoxDecoration(
-                                        border: Border.all(color: Colors.white),
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0))
-
-                                    )
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(10,20,0,10),
-                                  child: SingleChildScrollView(
-
-                                    child: BasicDateField(
-
-                                        "Date of Birth",
-                                            (date) => {
-                                          _dob = date.toIso8601String()
-                                        }
-
-                                    ),
-                                  ),
-                                ),
-                              ),
 
                               SizedBox(height: 10.0),
 
@@ -193,49 +168,7 @@ class _SignUpState extends State<SignUp> {
 
                               ),
 
-                              SizedBox(height: 10.0),
 
-                              Container(
-                                child: DropDownFormField(
-                                  required: true,
-                                  titleText: null,
-                                  validator: (input) {
-                                    if (input==null) {
-                                      return 'Provide a Gender';
-                                    }
-                                  },
-
-                                  hintText: 'Please Select Gender',
-                                  value: _gender,
-                                  onSaved: (value) {
-                                    setState(() {
-                                      _gender = value;
-                                    });
-                                  },
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _gender = value;
-                                    });
-                                  },
-                                  dataSource: [
-                                    {
-                                      "display": "Male",
-                                      "value": "Male",
-                                    },
-                                    {
-                                      "display": "Female",
-                                      "value": "Female",
-                                    },
-                                    {
-                                      "display": "Others",
-                                      "value": "Others",
-                                    },
-
-                                  ],
-                                  textField: 'display',
-                                  valueField: 'value',
-                                ),
-                              ),
 
 
                               SizedBox(height: 10.0),
@@ -298,6 +231,77 @@ class _SignUpState extends State<SignUp> {
                                 onSaved: (input) => _confirmpassword = input,
 
 
+                              ),
+
+
+
+                              Container(
+                                child: Theme(
+                                  data: new ThemeData(
+                                    primaryColor: Colors.white,
+                                    hintColor: Colors.white70,
+                                  ),
+                                  child: DropDownFormField(
+                                    required: true,
+                                    titleText: null,
+                                    validator: (input) {
+                                      if (input==null) {
+                                        return 'Provide a Gender';
+                                      }
+                                    },
+
+                                    hintText: 'Please Select Gender',
+                                    value: _gender,
+                                    onSaved: (value) {
+                                      setState(() {
+                                        _gender = value;
+                                      });
+                                    },
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _gender = value;
+                                        TextStyle(color: Colors.white);
+//                                      style: new TextStyle(
+//                                        color:Colors.white,
+//                                      );
+                                      });
+                                    },
+                                    dataSource: [
+                                      {
+                                        "display": "Male",
+                                        "value": "Male",
+                                      },
+                                      {
+                                        "display": "Female",
+                                        "value": "Female",
+                                      },
+                                      {
+                                        "display": "Others",
+                                        "value": "Others",
+                                      },
+
+                                    ],
+                                    textField: 'display',
+                                    valueField: 'value'
+
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 10.0),
+
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(10,20,0,10),
+                                child: SingleChildScrollView(
+
+                                  child: BasicDateField(
+
+                                      "Date of Birth",
+                                          (date) => {
+                                        _dob = date.toIso8601String()
+                                      }
+
+                                  ),
+                                ),
                               ),
 
                               SizedBox(height: 10),

@@ -99,7 +99,7 @@ class SnakeBar extends StatelessWidget {
           action: SnackBarAction(
             label: 'Next',
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => bottomNavigationBar()));
             },
           ),
         );
