@@ -45,6 +45,7 @@ dependencies:
   flushbar: 
   shared_preferences: ^0.5.3+4
   flutter_launcher_icons: ^0.7.5
+  flutter_native_splash: ^0.1.6
 
 
 
@@ -55,6 +56,11 @@ flutter_icons:
   image_path: "images/zodo.jpg"
   android: true
   ios: true
+
+flutter_native_splash:
+  image: "images/zodo.jpg"
+  color: 42a5f5
+  fill: true
 
 
 

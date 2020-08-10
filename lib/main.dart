@@ -1,23 +1,9 @@
-import 'package:demohoroapp/Screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:demohoroapp/Components/BottomNav.dart';
 
-
-
-//void main(){
-//
-//
-//  runApp(new MaterialApp(
-//    debugShowCheckedModeBanner : false,
-//    home:  SplashScreen(),
-//    routes: <String, WidgetBuilder>{
-//      '/Login': (BuildContext context) => new LoginPage()
-//    },
-//  ));
-//}
 
 
 void main() async{
@@ -42,7 +28,7 @@ void main() async{
 
   [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
       .then((_) => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: email==null?SplashScreen():bottomNavigationBar())));
+        debugShowCheckedModeBanner: false,
+         home: email==null?SplashScreen(): bottomNavigationBar())));
 }
 
