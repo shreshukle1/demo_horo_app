@@ -9,23 +9,65 @@ import 'database.dart';
 import 'login.dart';
 
 class SignUp extends StatefulWidget {
-
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _firstName, _lastName,_email,_password,_confirmpassword,_phoneNumber,_gender;
+  String _firstName,
+      _lastName,
+      _email,
+      _password,
+      _confirmpassword,
+      _phoneNumber,
+      _gender;
   var _dob;
 
+  Future<void> get buildDailogProfileNotComplete async {
+    return showDialog(
+      context: context,
+      builder: (_) => Container(
+        //  decoration: BoxDecoration(
+        //                   // borderRadius: new BorderRadius.circular(25.0),
+        //                   gradient: LinearGradient(
+        //                       begin: Alignment.centerRight,
+        //                       end: Alignment.centerLeft,
+        //                       stops: [0.2, 0.9],
+        //                       colors: [ Colors.white,Colors.blue[100]])
+        //               ),
+        child: AlertDialog(
+          title: Text('con....'),
+          content: Container(
+            //  decoration: BoxDecoration(
+            //                   // borderRadius: new BorderRadius.circular(25.0),
+            //                   gradient: LinearGradient(
+            //                       begin: Alignment.centerRight,
+            //                       end: Alignment.centerLeft,
+            //                       stops: [0.2, 0.9],
+            //                       colors: [ Colors.white,Colors.blue[100]])
+            //               ),
+              child: Text('Click Complete For Complete Profile!')),
+          actions: [
+            RaisedButton(
+              color: Colors.green,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+              child: Text('Next', style: TextStyle(color: Colors.white)),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
 
   bool isValidDob(String _dob) {
-    if (_dob.isEmpty){
+    if (_dob.isEmpty) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
@@ -39,7 +81,6 @@ class _SignUpState extends State<SignUp> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -59,188 +100,157 @@ class _SignUpState extends State<SignUp> {
                                     return 'Provide a First Name';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'First Name',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
-
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 onSaved: (input) => _firstName = input,
-
                               ),
                               SizedBox(height: 10.0),
-
-
                               TextFormField(
                                 validator: (input) {
                                   if (input.isEmpty) {
                                     return 'Provide a Last Name';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'Last Name',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)
-                                      ),
-                                      borderSide: BorderSide(color: Colors.white)) ,
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                   focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 onSaved: (input) => _lastName = input,
-
                               ),
                               SizedBox(height: 10.0),
-
                               TextFormField(
                                 validator: (input) {
                                   if (input.isEmpty) {
                                     return 'Provide an email';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'Email',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                   focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 keyboardType: TextInputType.emailAddress,
                                 onSaved: (input) => _email = input,
-
                               ),
-
-
                               SizedBox(height: 10.0),
-
                               TextFormField(
                                 validator: (input) {
-                                  if (input.length<10 || input.length>10 || input.isEmpty) {
+                                  if (input.length < 10 ||
+                                      input.length > 10 ||
+                                      input.isEmpty) {
                                     return 'Provide a valid Phone Number';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'Mobile Number',
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                   focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 keyboardType: TextInputType.phone,
                                 onSaved: (input) => _phoneNumber = input,
-
                               ),
-
-
-
-
                               SizedBox(height: 10.0),
-
                               TextFormField(
                                 validator: (input) {
                                   if (input.isEmpty) {
                                     return 'Provide a password which has more then 6 characters';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'Password',
-
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
-
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 obscureText: true,
                                 onSaved: (input) => _password = input,
-
                               ),
                               SizedBox(height: 10.0),
-
                               TextFormField(
                                 validator: (input) {
                                   if (input.length < 6) {
                                     return 'Provide a password which has more then 6 characters';
                                   }
                                 },
-                                style: TextStyle(
-                                    color: Colors.white
-                                ),
+                                style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
                                   hintText: 'Confirm Password',
-
                                   hintStyle: TextStyle(
                                     color: Colors.white70,
                                   ),
-
                                   border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      borderSide: BorderSide(color: Colors.white)) ,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
                                       borderSide: BorderSide(color: Colors.white)),
-
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                      borderSide: BorderSide(color: Colors.white)),
                                 ),
                                 obscureText: true,
                                 onSaved: (input) => _confirmpassword = input,
-
-
                               ),
-
-
-
                               Container(
                                 child: new Theme(
                                   data: Theme.of(context).copyWith(
                                     canvasColor: Color.fromRGBO(0, 0, 51, 100),
                                   ),
                                   child: DropdownButtonFormField(
-                                    style: TextStyle(color: Colors.white, fontSize: 16),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16),
                                     iconEnabledColor: Colors.white,
                                     decoration: InputDecoration(
 //                                        enabledBorder: OutlineInputBorder(
@@ -273,28 +283,16 @@ class _SignUpState extends State<SignUp> {
                                     }).toList(),
                                   ),
                                 ),
-
                               ),
                               SizedBox(height: 10.0),
-
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(10,20,0,10),
+                                padding: const EdgeInsets.fromLTRB(10, 20, 0, 10),
                                 child: SingleChildScrollView(
-
-                                  child: BasicDateField(
-
-                                      "Date of Birth",
-                                          (date) => {
-                                        _dob = date.toIso8601String()
-                                      }
-
-                                  ),
+                                  child: BasicDateField("Date of Birth",
+                                          (date) => {_dob = date.toIso8601String()}),
                                 ),
                               ),
-
                               SizedBox(height: 10),
-
-
                               Container(
                                 height: 40,
                                 width: 250,
@@ -304,20 +302,17 @@ class _SignUpState extends State<SignUp> {
                                       borderRadius: BorderRadius.circular(30.0),
                                       color: Colors.white,
                                       elevation: 20.0,
-
                                       child: Center(
-                                        child: Text('Register',
+                                        child: Text(
+                                          'Register',
                                           style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontFamily: 'Montserrat',
-                                          ),),
-
+                                          ),
+                                        ),
                                       ),
-
-                                    )
-
-                                ),
+                                    )),
                               ),
                             ],
                           ),
@@ -327,37 +322,33 @@ class _SignUpState extends State<SignUp> {
                   )
                 ],
               ),
-            )
-        )
-    );
+            )));
   }
 
   void Register() async {
-    if(_formKey.currentState.validate()) {
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       if (_password == _confirmpassword) {
-        try{
-          AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        try {
+          AuthResult result = await FirebaseAuth.instance
+              .createUserWithEmailAndPassword(
               email: _email, password: _password);
           // create a document with the user id i.e create the user in the database
           FirebaseAuth _auth = FirebaseAuth.instance;
           final FirebaseUser user = await _auth.currentUser();
-          await DatabaseServices(uid:user.uid).updateUserData(_firstName, _lastName, _email, _dob
-              , _phoneNumber, _gender);
+          await DatabaseServices(uid: user.uid).updateUserData(
+              _firstName, _lastName, _email, _dob, _phoneNumber, _gender);
 
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-
-        }catch(e){
+          await buildDailogProfileNotComplete;
+        } catch (e) {
           print(e.message);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SignUp()));
         }
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => PasswordMissmatch()));
       }
-      else{
-        Navigator.push(context, MaterialPageRoute(builder: (context) => PasswordMissmatch())); }
     }
-
   }
-
-
-
 }
