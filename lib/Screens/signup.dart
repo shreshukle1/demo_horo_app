@@ -149,7 +149,6 @@ class _SignUpState extends State<SignUp> {
                                 style: TextStyle(
                                     color: Colors.white
                                 ),
-
                                 decoration: InputDecoration(
                                   hintText: 'Mobile Number',
                                   hintStyle: TextStyle(
@@ -252,7 +251,7 @@ class _SignUpState extends State<SignUp> {
 //                                            borderSide: BorderSide(color: Colors.grey[300])),
                                         filled: true,
                                         fillColor: Color.fromARGB(0, 0, 0, 1),
-                                        hintText: "Enter your gender",
+                                        hintText: "Select your gender",
                                         hintStyle: TextStyle(color: Colors.white)),
                                     hint: Text(
                                       '',

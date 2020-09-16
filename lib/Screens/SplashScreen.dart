@@ -14,7 +14,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    // Navigator.of(context).pushReplacementNamed('/Login');
+//    Navigator.pushAndRemoveUntil(
+//      context,
+//      MaterialPageRoute(builder: (context) => LoginPage()),
+//          (Route<dynamic> route) => false,
+//    );
+
    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
